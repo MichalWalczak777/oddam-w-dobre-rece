@@ -2,7 +2,7 @@ import React from "react";
 
 const HomeBeneficiaries = () => {
     return (
-        <div>
+        <div id="organizations">
             beneficiaries
         </div>
     );

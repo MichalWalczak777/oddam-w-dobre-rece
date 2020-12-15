@@ -3,9 +3,7 @@ import Home from './components/Home';
 import {
   HashRouter,
   Route,
-  Link,
-  Switch,
-  NavLink
+  Switch
 } from 'react-router-dom';
 
 function App() {

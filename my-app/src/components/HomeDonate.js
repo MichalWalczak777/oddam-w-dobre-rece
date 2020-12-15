@@ -2,7 +2,7 @@ import React from "react";
 
 const HomeDonate = () => {
     return (
-        <div>
+        <div id="donate">
             donate
         </div>
     );
