@@ -1,0 +1,37 @@
+.homeThreeColumns-background{
+    background-image:url("../assets/3\ Columns\ Background.png");
+    width:100%;
+}
+
+.homeThreeColumnsContainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.homeThreeColumns-columnBox{
+    display:flex;
+    flex-direction: column;
+    margin: 45px 10px;
+    h2{
+        font-size: 5.625rem;
+        font-weight:200;
+        align-self: center;
+    }
+    .homeThreeColumns-columnCategory{
+        font-size:1.125rem;
+        text-transform: uppercase;
+        margin-top: 20px;
+        align-self: center;
+    }
+    .homeThreeColumns-columnText{
+        font-family: $font-alt;
+        line-height:1.5rem;
+        font-weight: 300;;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+}
+
+
+
