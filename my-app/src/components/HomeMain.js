@@ -1,14 +1,14 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 const HomeMain = () => {
     return (
-        <div id="start">
-            Main
-           {/* <h2>Zacznij pomagać! Oddaj niechciane rzeczy w zaufane ręce</h2>
+        <div className="container mainContainer" id="start">
+           <h2>Zacznij pomagać! <br/> Oddaj niechciane rzeczy w zaufane ręce</h2>
            <div className="homeMain-buttons">
-                <button>Oddaj rzeczy</button>
-                <button>Zorganizuj zbiórkę</button>
-            </div>  */}
+                <button><Link to={"/login"}>Oddaj rzeczy</Link></button>
+                <button><Link to={"/login"}>Zorganizuj zbiórkę</Link></button>
+            </div> 
         </div>
     );
 }
