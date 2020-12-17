@@ -5,8 +5,8 @@ import {Link as ScrollLink, Element, Events, animateScroll as scroll, scrollSpy,
 
 const HomeHeader = () => {
     return (
-        <div className="container">
-            <ul className="homeHeader-navlist">
+        <div className="container homeHeader-container">
+            <ul className="homeHeader-navlist navlist-1">
                 <li>            
                     <Link to={"/login/"}> Zaloguj się </Link> 
                 </li>
@@ -14,7 +14,7 @@ const HomeHeader = () => {
                     <Link to={"/register/"}> Załóż konto </Link> 
                 </li>
             </ul>
-            <ul className="homeHeader-navlist">
+            <ul className="homeHeader-navlist navlist-2">
                 <li>
                     <ScrollLink activeClass="active" to="start" spy={true} smooth={true} duration={1000}>Start</ScrollLink>
                 </li>

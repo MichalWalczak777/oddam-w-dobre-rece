@@ -5,15 +5,20 @@ import {Link} from "react-router-dom";
 const HomeMain = () => {
     return (
         <>
-            <div className="container homeMain-Container" id="start">
-            <h2>Zacznij pomagać! <br/> Oddaj niechciane rzeczy w zaufane ręce</h2>
-            <div className="homeMain-buttons">
-                    <button><Link to={"/login"}>Oddaj rzeczy</Link></button>
-                    <button><Link to={"/login"}>Zorganizuj zbiórkę</Link></button>
-                </div> 
+            <div className="homeMain-background">
+                <div className="container homeMain-container" id="start">
+                    <div className="homeMain-text">
+                        <h2>Zacznij pomagać! <br/> Oddaj niechciane rzeczy w zaufane ręce</h2>
+                        <div className="homeMain-buttonsBox">
+                                <button className="homeMain-button"><Link to={"/login"}>Oddaj <br/> rzeczy</Link></button>
+                                <button className="homeMain-button"><Link to={"/login"}>Zorganizuj <br/> zbiórkę</Link></button>
+                        </div> 
+                    </div>
+                </div>
             </div>
             <HomeThreeColumns/>
         </>
+
     );
 }
 

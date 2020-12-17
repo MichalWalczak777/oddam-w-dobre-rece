@@ -1,20 +1,55 @@
+.homeMain-background{
+    background-image: url(../assets/Home-Hero-Image.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: -150% 0;
+}
 
-.homeMain-Container{
+.homeMain-container{
     margin-top:50px;
-    margin-bottom:50px;
+    display:flex;
+    justify-content: flex-end;
+}
+
+.homeMain-image{
+    width:400px;
+    height:400px;
+}
+
+.homeMain-text{
+    margin-top:340px;
+    margin-bottom:270px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    .homeMain-buttons{
-        margin:20px;
-        display: flex;
-        justify-content: center;
-        width:50%;        
-    }
     h2{
         text-align:center;
-        width:50%;
+        line-height: 3.25rem;
+        font-size:2.375rem;
     }
 }
+
+.homeMain-buttonsBox{
+    margin-top:50px;
+    margin:20px;
+    display: flex;
+    justify-content: center;      
+}
+
+.homeMain-button{
+    margin: 0 15px;
+    width: 310px;
+    padding: 15px 0;
+    background-color: #fff;
+    border: #3C3C3C 1px solid;
+    a{
+        color:#3C3C3C;
+        font-size: 2.25rem;
+        font-weight: 300;
+        text-transform: uppercase;
+    }
+}
+
+
+

@@ -1,4 +1,17 @@
+.homeHeader-container{
+    position: fixed;
+    top:0;
+    right:0;
+    background-color: #fff;
+}
+
 .homeHeader-navlist{
+    &.navlist-1{
+        font-size: 0.875rem;
+    }
+    &.navlist-2{
+        font-size: 1.125rem;
+    }
     display: flex;
     justify-content: flex-end;
     li{
