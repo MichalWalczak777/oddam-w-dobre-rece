@@ -11,8 +11,8 @@
 .homeThreeColumns-columnBox{
     display:flex;
     flex-direction: column;
-    margin: 45px 10px;
-    h2{
+    margin: 85px 50px;
+    h3{
         font-size: 5.625rem;
         font-weight:200;
         align-self: center;
@@ -27,8 +27,9 @@
         font-family: $font-alt;
         line-height:1.5rem;
         font-weight: 300;;
-        margin-top: 20px;
-        text-align: center;
+        margin-top: 30px;
+        text-align: justify;
+        text-align-last: center;
     }
 
 }

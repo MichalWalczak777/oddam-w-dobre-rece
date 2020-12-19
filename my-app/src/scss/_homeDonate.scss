@@ -1,0 +1,45 @@
+
+.homeDonate{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.homeDonate-headerContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h2{
+        margin-top:55px;
+    }
+}
+
+.homeDonate-background{
+    margin-top:40px;
+    background-color: #F0F1F1;
+}
+
+.homeDonate-instructionContainer{
+    display: flex;
+    justify-content: space-evenly;
+    h4{
+        text-align:center;
+        margin-top:10px;
+        margin-bottom:20px;
+    }
+    p{
+        text-align: center;
+    }
+}
+
+.homeDonate-instruction{
+    margin: 70px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.homeDonate-button{
+    margin-top:35px;
+    align-self: center;
+}
