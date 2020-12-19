@@ -1,0 +1,50 @@
+// .homeAboutUs{
+//     background-color: #F0F1F1;
+// }
+
+// .homeAboutUs-container{
+//     width:100%;
+//     display: flex;
+//     margin-top: 80px;
+// }
+
+
+.homeAboutUs{
+    margin-top: 80px;
+    background-color: #F0F1F1;
+    width:100%;
+    display: flex;
+}
+
+.homeAboutUs-text{
+    width:50%;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h2{
+        width:75%;
+        margin-bottom: 10px;
+    }
+    p{
+        width:75%;
+        margin: 30px 60px;
+        font-size: 1.875rem;
+        line-height: 3rem;
+        text-align: justify;
+        text-align-last: center;
+    }
+}
+
+.homeAboutUs-signatureBox{
+    width: 75%;
+    display:flex;
+    justify-content: flex-end;
+    img{
+        margin: 10px 60px;
+    }
+}
+
+.homeAboutUs-imagePeople{
+    width:50%;
+}
