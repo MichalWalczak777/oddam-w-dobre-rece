@@ -4,7 +4,7 @@ import HomeMain from "./HomeMain";
 import HomeThreeColumns from "./HomeThreeColumns";
 import HomeDonate from "./HomeDonate";
 import HomeAboutUs from "./HomeAboutUs";
-import HomeBeneficiaries from "./HomeBeneficiaries";
+import HomeFundations from "./HomeFundations";
 import HomeContact from "./HomeContact";
 
 const Home = () => {
@@ -14,7 +14,7 @@ const Home = () => {
             <HomeMain/>
             <HomeDonate/>
             <HomeAboutUs/>
-            <HomeBeneficiaries/>
+            <HomeFundations/>
             <HomeContact/>
         </>
     )
