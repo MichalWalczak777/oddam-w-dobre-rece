@@ -1,6 +1,7 @@
 import React from "react";
 import {useState, useEffect} from "react";
 import HomeFundationsDisplay from "./HomeFundationsDisplay";
+import decoration from "../assets/Decoration.svg";
 
 const HomeFundations = () => {
 
@@ -9,6 +10,12 @@ const HomeFundations = () => {
     const [organizationsList, setOrganizationsList] = useState([]);
     const [fundraisingsList, setFundraisingsList] = useState([]);
 
+    const [fundationsHeader] = useState("W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy. Możesz sprawdzić czym się zajmują, komu pomagają i czego potrzebują.");
+    const [organizationsHeader] = useState("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.");
+    const [fundraisingsHeader] = useState("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.");
+
+
+    
     const handleClick = e => {
             setCurrentTab(e.target.getAttribute("name"));
     }
@@ -59,29 +66,33 @@ const HomeFundations = () => {
     switch(currentTab){
         case "fundations":
             content = (
-                <HomeFundationsDisplay data={fundationsList}></HomeFundationsDisplay>
+                <HomeFundationsDisplay data={fundationsList} header={fundationsHeader}></HomeFundationsDisplay>
             )
         break;
         case "organizations":
             content = (
-                <HomeFundationsDisplay data={organizationsList}></HomeFundationsDisplay>
+                <HomeFundationsDisplay data={organizationsList} header={organizationsHeader}></HomeFundationsDisplay>
             )
         break;
         case "fundraisings":
             content = (
-                <HomeFundationsDisplay data={fundraisingsList}></HomeFundationsDisplay>
+                <HomeFundationsDisplay data={fundraisingsList} header={fundraisingsHeader}></HomeFundationsDisplay>
             )
         break;
     }
 
 
     return (
-        <div id="organizations">
-            <div className="homeFundations-navigation">
-                <button className="homeFundations-navButton" name="fundations" onClick={handleClick}>Fundacjom</button>
-                <button className="homeFundations-navButton" name="organizations" onClick={handleClick}>Organizacjom pozarządowym</button>
-                <button className="homeFundations-navButton" name="fundraisings" onClick={handleClick}>Lokalnym zbiórkom</button>
+        <div id="organizations" className="container ">
+            <div className="homeFundations-header">
+                <h2> Komu pomagamy? </h2>
+                <img className="homeFundations-decoration" alt="decoration" src={decoration}></img>
             </div>
+                <div className="homeFundations-navigation">
+                    <button className="homeFundations-navButton" name="fundations" onClick={handleClick}>Fundacjom </button>
+                    <button className="homeFundations-navButton" name="organizations" onClick={handleClick}>Organizacjom <br/> pozarządowym</button>
+                    <button className="homeFundations-navButton" name="fundraisings" onClick={handleClick}>Lokalnym <br/> zbiórkom</button>
+                </div>
             {content}
         </div>
     );

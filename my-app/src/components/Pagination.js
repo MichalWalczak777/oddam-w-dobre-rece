@@ -14,8 +14,8 @@ const Pagination = ({positionsPerPage, positionsTotal, paginate}) => {
     else{
         return (
             <ReactPaginate
-            previousLabel={"previous"}
-            nextLabel={"next"}
+            previousLabel={""}
+            nextLabel={""}
             breakLabel={"..."}
             breakClassName={"break"}
             pageCount={pageNumbers.length}

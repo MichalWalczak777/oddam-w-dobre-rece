@@ -1,0 +1,46 @@
+.homeFundationsDisplay{
+    display: flex;
+    flex-direction: column;
+}
+
+.homeFundationsDisplay-header{
+    max-width: 680px;
+    margin: 0 auto;
+    font-size: 1.375rem;
+    text-align: justify;
+    text-align-last: center;
+    margin-bottom: 60px;
+}
+
+.homeFundationsDisplay-list{
+    li{
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #3C3C3C ;
+        padding: 20px;
+    }
+    li:last-child{
+        border-bottom: none;
+    }
+}
+
+.homeFundationsDisplay-fundationName{
+    font-size: 1.625rem;
+    margin-bottom: 5px;
+    font-weight: 300;
+    font-family: $font-alt;
+    color: #3C3C3C;
+}
+
+.homeFundationsDisplay-fundationDescription, .homeFundationsDisplay-fundationNeeds{
+    font-size: 1.125rem;
+    font-weight: 300;
+    font-family: $font-alt;
+    color: #3C3C3C;
+}
+
+.homeFundationsDisplay-fundationNeeds{
+    align-self: center;
+}
+
+
