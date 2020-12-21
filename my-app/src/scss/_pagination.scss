@@ -1,0 +1,17 @@
+.pagination-container{
+    display: flex;
+    justify-content: center;
+    font-size: 1.125rem;
+    height:35px;
+    li{
+        display: flex;
+        padding: 20px 10px;
+        a{
+            align-self: center;
+        }
+    }
+}
+
+.pagination-current-page{
+    border: 1px solid #707070;
+}
