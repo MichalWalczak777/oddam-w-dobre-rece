@@ -15,7 +15,7 @@ const HomeFundations = () => {
     const [fundraisingsHeader] = useState("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.");
 
 
-    
+
     const handleClick = e => {
             setCurrentTab(e.target.getAttribute("name"));
     }
@@ -94,6 +94,7 @@ const HomeFundations = () => {
                     <button className="homeFundations-navButton" name="fundraisings" onClick={handleClick}>Lokalnym <br/> zbiórkom</button>
                 </div>
             {content}
+            {/* {currentTab === "fundations" && <HomeFundationsDisplay data={fundationsList} header={fundationsHeader}></HomeFundationsDisplay>} */}
         </div>
     );
 }
