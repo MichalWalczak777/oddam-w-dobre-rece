@@ -30,7 +30,6 @@ const HomeFundations = () => {
             }
             fundations.push(fundation);
         }
-            console.log(fundations);
             setFundationsList(fundations);
         
 
@@ -43,7 +42,6 @@ const HomeFundations = () => {
             }
             organizations.push(organization);
         }
-            console.log(organizations);
             setOrganizationsList(organizations);
         
 
@@ -56,31 +54,11 @@ const HomeFundations = () => {
                 }
                 fundraisings.push(fundraising);
             }
-            console.log(fundraisings);
             setFundraisingsList(fundraisings);
 
     },[]);
 
     let content = null;
-
-    switch(currentTab){
-        case "fundations":
-            content = (
-                <HomeFundationsDisplay data={fundationsList} header={fundationsHeader}></HomeFundationsDisplay>
-            )
-        break;
-        case "organizations":
-            content = (
-                <HomeFundationsDisplay data={organizationsList} header={organizationsHeader}></HomeFundationsDisplay>
-            )
-        break;
-        case "fundraisings":
-            content = (
-                <HomeFundationsDisplay data={fundraisingsList} header={fundraisingsHeader}></HomeFundationsDisplay>
-            )
-        break;
-    }
-
 
     return (
         <div id="organizations" className="container ">
@@ -93,8 +71,9 @@ const HomeFundations = () => {
                     <button className="homeFundations-navButton" name="organizations" onClick={handleClick}>Organizacjom <br/> pozarządowym</button>
                     <button className="homeFundations-navButton" name="fundraisings" onClick={handleClick}>Lokalnym <br/> zbiórkom</button>
                 </div>
-            {content}
-            {/* {currentTab === "fundations" && <HomeFundationsDisplay data={fundationsList} header={fundationsHeader}></HomeFundationsDisplay>} */}
+            {currentTab === "fundations" && <HomeFundationsDisplay data={fundationsList} header={fundationsHeader}></HomeFundationsDisplay>}
+            {currentTab === "organizations" && <HomeFundationsDisplay data={organizationsList} header={organizationsHeader}></HomeFundationsDisplay>}
+            {currentTab === "fundraisings" && <HomeFundationsDisplay data={fundraisingsList} header={fundraisingsHeader}></HomeFundationsDisplay>}
         </div>
     );
 }
