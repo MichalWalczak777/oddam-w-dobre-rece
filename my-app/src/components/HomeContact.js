@@ -1,11 +1,12 @@
 import React from "react";
-import {useState} from "react";
+import {useState, useRef} from "react";
 import decoration from "../assets/Decoration.svg";
 import facebook from "../assets/Facebook.svg";
 import instagram from "../assets/Instagram.svg";
 import axios from "axios";
 
 const HomeContact = () => {
+
 
     const [fields, setFields] = useState(
         {
@@ -14,33 +15,60 @@ const HomeContact = () => {
             message: []
     });
 
+    const [errors, setErrors] = useState(
+        {
+            name: [],
+            email: [],
+            message: []
+    });
+
+    const nameErrors = useRef(null);
+    const emailErrors = useRef(null);
+    const messageErrors = useRef(null);
+
     const axiosHeader = {
         "Content-Type": "application/json"
       };
 
     const validateFields = () => {
-        let errors = {
+        let errorsFound = {
             name: [],
             email: [],
             message: []
         };
 
-        var nameRegex = /^\S*$/;
-        !fields.name && errors.name.push("Imię nie może być puste");
-        !nameRegex.test(fields.name) && errors.name.push("Imię nie może zawierać spacji");
+        var nameRegex = /^[a-zA-Z]+$/;
+        !fields.name && errorsFound.name.push("Imię nie może być puste");
+        !nameRegex.test(fields.name) && errorsFound.name.push("Imię musi się składać wyłącznie z liter");
 
         const emailRegex = /^\S+@\S+\.\S+$/;
-        !emailRegex.test(fields.email) && errors.email.push("niepoprawny format maila");
+        !emailRegex.test(fields.email) && errorsFound.email.push("niepoprawny format maila");
 
-        fields.message.length < 120 && errors.message.push("wiadomość jest zbyt krótka");
+        fields.message.length < 120 && errorsFound.message.push("wiadomość jest zbyt krótka");
 
-        console.log(errors);
-        return (errors.name.length === 0 && errors.email.length === 0 && errors.message.length === 0);
+        setErrors(errorsFound);
+        return (errorsFound.name.length === 0 && errorsFound.email.length === 0 && errorsFound.message.length === 0);
     }
 
     const sendData = () => {
         console.log("wysłano dane");
-        axios.post('https://fer-api.coderslab.pl/v1/portfolio/contact', fields, axiosHeader);
+
+        axios.post('https://fer-api.coderslab.pl/v1/portfolio/contact', fields, axiosHeader)
+        .catch(error =>
+               setErrors(
+                    {
+                    name: error.response.data.errors.filter(e => e.param === "name").map(e => e.msg),
+                    email: error.response.data.errors.filter(e => e.param === "email").map(e => e.msg),
+                    message: error.response.data.errors.filter(e => e.param === "message").map(e => e.msg)
+                    }));
+    }
+
+
+
+    const printErrors = () => {
+        nameErrors.current.innerText = errors.name;
+        emailErrors.current.innerText = errors.email;
+        messageErrors.current.innerText = errors.message;
     }
 
 
@@ -53,7 +81,8 @@ const HomeContact = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        validateFields()? sendData(): console.log("Niepoprawne dane");
+        validateFields() && sendData();
+        printErrors();
     }
 
 
@@ -70,10 +99,12 @@ const HomeContact = () => {
                             <div className="homeContact-inputBox">
                                 <label htmlFor="name">Wpisz swoje imię</label>
                                 <input type="text" name="name" id="name" placeholder="Krzysztof" onChange={handleChange}/>
+                                <div className="homeContact-errors" ref={nameErrors}></div>
                             </div>
                             <div className="homeContact-inputBox">
                                 <label htmlFor="email">Wpisz swój email</label>
                                 <input type="email" name="email" id="email" placeholder="abc@xyz.pl" onChange={handleChange}/>
+                                <div className="homeContact-errors" ref={emailErrors}></div>
                             </div>
                         </div>
                         <div className="homeContact-inputBox homeContact-messageBox">
@@ -81,6 +112,7 @@ const HomeContact = () => {
                             <textarea name="message" id="message" onChange={handleChange} 
                                       placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                                                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."/>
+                            <div className="homeContact-errors" ref={messageErrors}></div>
                         </div>
                         <div className="homeContact-buttonWrapper">
                             <button className="homeContact-submit" type="submit">Wyślij</button>
