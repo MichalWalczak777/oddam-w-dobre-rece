@@ -19,16 +19,6 @@ const Register = () => {
             passwordRepeated: []
     });
 
-    const emailErrors = useRef(null);
-    const passwordErrors = useRef(null);
-    const passwordRepeatedErrors = useRef(null);
-
-    const printErrors = () => {
-        emailErrors.current.innerText = errors.email;
-        passwordErrors.current.innerText = errors.password;
-        passwordRepeatedErrors.current.innerText = errors.passwordRepeated;
-    }
-
     const validateFields = () => {
         let errorsFound = {
             email: [],
@@ -60,7 +50,6 @@ const Register = () => {
     const handleSubmit = e => {
         e.preventDefault();
         validateFields() && console.log("zarejestrowano");
-        printErrors();
     }
 
 
@@ -72,17 +61,17 @@ const Register = () => {
                 <div className="login-inputBox">
                     <label htmlFor="email">Email</label>
                     <input type="email" name="email" id="email" onChange={handleChange}/>
-                    <div ref={emailErrors}></div>
+                    <div>{errors.email}</div>
                 </div>
                 <div className="login-inputBox">
                     <label htmlFor="password">Hasło</label>
                     <input type="password" name="password" id="password" onChange={handleChange}/>
-                    <div ref={passwordErrors}></div>
+                    <div>{errors.password}</div>
                 </div>
                 <div className="login-inputBox">
                     <label htmlFor="password-repeat">Powtórz hasło</label>
                     <input type="password" name="passwordRepeated" id="password-repeat" onChange={handleChange}/>
-                    <div ref={passwordRepeatedErrors}></div>
+                    <div>{errors.passwordRepeated}</div>
                 </div>
             </form>
             <div className="login-buttons">
