@@ -75,8 +75,8 @@ const Register = () => {
                 </div>
             </form>
             <div className="login-buttons">
-                <button className="login-button-active" type="submit" onClick={handleSubmit}>Załóż konto</button>
-                <button><Link to={"/login"}>Zaloguj się</Link></button>
+                <button className="login-button login-button-active" type="submit" onClick={handleSubmit}>Załóż konto</button>
+                <button className="login-button"><Link to={"/login"}>Zaloguj się</Link></button>
             </div>
         </div>
 

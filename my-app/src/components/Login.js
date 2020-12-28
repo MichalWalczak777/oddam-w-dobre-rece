@@ -66,8 +66,8 @@ const Login = () => {
                 </div>
             </form>
             <div className="login-buttons">
-                <button><Link to={"/register"}>Załóż konto</Link></button>
-                <button className="login-button-active" type="submit" onClick={handleSubmit}>Zaloguj się</button>
+                <button className="login-button"><Link to={"/register"}>Załóż konto</Link></button>
+                <button className="login-button login-button-active" type="submit" onClick={handleSubmit}>Zaloguj się</button>
             </div>
         </div>
 
