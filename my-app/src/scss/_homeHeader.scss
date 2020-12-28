@@ -1,8 +1,11 @@
 .homeHeader-container{
-    position: fixed;
+    position: sticky;
     top:0;
     right:0;
     background-color: #fff;
+    &:sticky{
+
+    }
 }
 
 .homeHeader-navlist{

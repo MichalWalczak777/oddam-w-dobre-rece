@@ -64,14 +64,6 @@ const HomeContact = () => {
     }
 
 
-
-    const printErrors = () => {
-        nameErrors.current.innerText = errors.name;
-        emailErrors.current.innerText = errors.email;
-        messageErrors.current.innerText = errors.message;
-    }
-
-
     const handleChange = e =>{
         const {name, value} = e.target;
         setFields(prev => ({
@@ -82,7 +74,6 @@ const HomeContact = () => {
     const handleSubmit = e => {
         e.preventDefault();
         validateFields() && sendData();
-        printErrors();
     }
 
 
@@ -99,12 +90,12 @@ const HomeContact = () => {
                             <div className="homeContact-inputBox">
                                 <label htmlFor="name">Wpisz swoje imię</label>
                                 <input type="text" name="name" id="name" placeholder="Krzysztof" onChange={handleChange}/>
-                                <div className="homeContact-errors" ref={nameErrors}></div>
+                                <div className="homeContact-errors">{errors.name}</div>
                             </div>
                             <div className="homeContact-inputBox">
                                 <label htmlFor="email">Wpisz swój email</label>
                                 <input type="email" name="email" id="email" placeholder="abc@xyz.pl" onChange={handleChange}/>
-                                <div className="homeContact-errors" ref={emailErrors}></div>
+                                <div className="homeContact-errors"> {errors.email}</div>
                             </div>
                         </div>
                         <div className="homeContact-inputBox homeContact-messageBox">
@@ -112,7 +103,7 @@ const HomeContact = () => {
                             <textarea name="message" id="message" onChange={handleChange} 
                                       placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                                                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."/>
-                            <div className="homeContact-errors" ref={messageErrors}></div>
+                            <div className="homeContact-errors">{errors.message}  </div>
                         </div>
                         <div className="homeContact-buttonWrapper">
                             <button className="homeContact-submit" type="submit">Wyślij</button>
