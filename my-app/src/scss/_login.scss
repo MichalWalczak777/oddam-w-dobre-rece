@@ -35,21 +35,39 @@
     display: flex;
     justify-content: space-between;
     button{
-        background-color: #fff;
-        border: none;
         margin-top: 40px;
-        width: 120px;
-        height: 50px;
+    }
+}
+
+.login-button{
+    background-color: #fff;
+    color: #3C3C3C;
+    border: none;
+    width: 120px;
+    height: 50px;
+    font-size: 1.125rem;
+    a{  
         font-weight: 300;
-        font-size: 1.125rem;
-        a{  
-            display: block;
-            width: 100%;
-            height: 100%;
-        }
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
     }
-    .login-button-active{
-        border: 0.75px solid #3C3C3C;
-    }
+}
+
+.login-button-active{
+    border: 0.75px solid #3C3C3C;
+}
+
+.login-loggout-buttonWrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.login-decoration{
+    margin-top: 20px;
+    margin-bottom: 40px;
 }
 
