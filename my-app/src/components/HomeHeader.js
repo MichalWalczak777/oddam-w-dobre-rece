@@ -1,16 +1,26 @@
-import React from "react";
-import {Link} from "react-router-dom";
+import React, {useContext} from "react";
+import {Link, useLocation} from "react-router-dom";
 import {Link as ScrollLink, Element, Events, animateScroll as scroll, scrollSpy, scroller} from "react-scroll";
+import { AuthContext } from "./Auth";
 
 const HomeHeader = () => {
+
+    const {currentUser} = useContext(AuthContext);
+    
     return (
         <div className="container homeHeader-container">
             <ul className="homeHeader-navlist navlist-1">
-                <li>            
-                    <Link to={"/login"}> Zaloguj się </Link> 
+                <li>
+                {currentUser?.email}
                 </li>
                 <li>            
-                    <Link to={"/register"}> Załóż konto </Link> 
+                {currentUser 
+                    ? <Link to={"/donateStuff"}> Oddaj rzeczy </Link> 
+                    : <Link to={"/login"}> Zaloguj się </Link>}
+                </li>
+                <li>{currentUser 
+                    ? <Link to={"/loggedOut"}> Wyloguj </Link> 
+                    : <Link to={"/register"}> Załóż konto </Link>}
                 </li>
             </ul>
 
