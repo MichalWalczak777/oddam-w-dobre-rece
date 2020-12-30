@@ -49,6 +49,7 @@ const Login = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
+        validateFields() &&
         app.auth().signInWithEmailAndPassword(fields.email, fields.password)
         .then(() => setIfRedirect(true))        
         .catch (error => alert(error));

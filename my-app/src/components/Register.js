@@ -1,8 +1,9 @@
 import React from "react";
 import {useState, useRef} from "react";
-import decoration from "../assets/Decoration.svg";
+import { Redirect } from "react-router-dom";
 import {Link} from "react-router-dom";
 import app from "../firebase";
+import decoration from "../assets/Decoration.svg";
 
 const Register = () => {
 
@@ -20,6 +21,7 @@ const Register = () => {
             passwordRepeated: []
     });
 
+    const [ifRedirect, setIfRedirect] = useState(false);
 
     const validateFields = () => {
         let errorsFound = {
@@ -49,13 +51,19 @@ const Register = () => {
 
     const handleSubmit = e => {
 
+        validateFields() &&
         e.preventDefault();
         app.auth().createUserWithEmailAndPassword(fields.email, fields.password)
+        .then(() => setIfRedirect(true))        
         .catch (error => alert(error));
     }
 
 
     return (
+
+        ifRedirect
+        ? <Redirect to={"/"} /> 
+        : (
         <div className="login container">
             <h2>Załóż konto</h2>
             <img className="general-decoration" alt="dekoracja" src={decoration}></img>
@@ -81,6 +89,7 @@ const Register = () => {
                 <button className="login-button"><Link to={"/login"}>Zaloguj się</Link></button>
             </div>
         </div>
+        )
 
     );
 }

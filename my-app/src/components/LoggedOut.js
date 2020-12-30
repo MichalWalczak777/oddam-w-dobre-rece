@@ -17,9 +17,8 @@ const LoggedOut = () => {
     return (
 
         ifRedirect
-            ? <Redirect to={"/"} /> 
-            : (
-
+        ? <Redirect to={"/"} /> 
+        : (
         <div className="login container">
             <h2>Zaloguj się</h2>
             <img className="login-decoration" alt="dekoracja" src={decoration}></img>
@@ -27,7 +26,7 @@ const LoggedOut = () => {
                 <button className="login-button login-button-active"><Link to={"/"}>Strona główna</Link></button>
             </div>
         </div>
-            )
+        )
 
     );
 
