@@ -2,6 +2,7 @@ import React from "react";
 import {useState, useRef} from "react";
 import decoration from "../assets/Decoration.svg";
 import {Link} from "react-router-dom";
+import app from "../firebase";
 
 const Register = () => {
 
@@ -18,6 +19,7 @@ const Register = () => {
             password: [],
             passwordRepeated: []
     });
+
 
     const validateFields = () => {
         let errorsFound = {
@@ -38,8 +40,6 @@ const Register = () => {
     }
 
 
-
-
     const handleChange = e =>{
         const {name, value} = e.target;
         setFields(prev => ({
@@ -48,8 +48,10 @@ const Register = () => {
     }
 
     const handleSubmit = e => {
+
         e.preventDefault();
-        validateFields() && console.log("zarejestrowano");
+        app.auth().createUserWithEmailAndPassword(fields.email, fields.password)
+        .catch (error => alert(error));
     }
 
 
@@ -57,7 +59,7 @@ const Register = () => {
         <div className="login container">
             <h2>Załóż konto</h2>
             <img className="general-decoration" alt="dekoracja" src={decoration}></img>
-            <form className="login-form">
+            <form className="login-form" onSubmit={handleSubmit}>
                 <div className="login-inputBox">
                     <label htmlFor="email">Email</label>
                     <input type="email" name="email" id="email" onChange={handleChange}/>

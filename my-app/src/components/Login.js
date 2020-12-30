@@ -1,7 +1,9 @@
 import React from "react";
-import {useState, useRef} from "react";
+import {useState} from "react";
+import { Redirect } from "react-router-dom";
 import decoration from "../assets/Decoration.svg";
 import {Link} from "react-router-dom";
+import app from "../firebase";
 
 const Login = () => {
 
@@ -17,6 +19,8 @@ const Login = () => {
             email: [],
             password: []
     });
+
+    const [ifRedirect, setIfRedirect] = useState(false);
 
     const validateFields = () => {
         let errorsFound = {
@@ -45,11 +49,17 @@ const Login = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        validateFields() && console.log("zalogowano");
+        app.auth().signInWithEmailAndPassword(fields.email, fields.password)
+        .then(() => setIfRedirect(true))        
+        .catch (error => alert(error));
     }
 
 
     return (
+
+        ifRedirect
+        ? <Redirect to={"/"} /> 
+        : (
         <div className="login container">
             <h2>Zaloguj się</h2>
             <img className="general-decoration" alt="dekoracja" src={decoration}></img>
@@ -70,6 +80,7 @@ const Login = () => {
                 <button className="login-button login-button-active" type="submit" onClick={handleSubmit}>Zaloguj się</button>
             </div>
         </div>
+        )
 
     );
 }
