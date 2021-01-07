@@ -1,0 +1,80 @@
+.donateStuff-header{
+    height: 850px;
+    display: flex;
+    flex-direction: column;
+    background-image: url(../assets/Form-Hero-Image.jpg);
+    background-repeat: no-repeat;
+}
+
+.donateStuff-headerText{
+    margin-top: 260px;
+    width: 50%;
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.donateStuff-headerTextContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.donateStuff-decoration{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.donateStuff-headerParagraph{
+    font-size: 2.5rem;
+    font-family: $font-base;
+    font-weight: lighter;
+}
+
+.donateStuff-headerSquares{
+    margin-top: 50px;
+    margin-bottom: 140px;
+    display: flex;
+}
+
+.donateStuff-headerSquare{
+
+    border: 1px black solid;
+    width: 135px;
+    height: 135px;
+    transform: rotate(45deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.donateStuff-squareText{
+    position: relative;
+    height: 100%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: rotate(-45deg);
+    h6{
+        font-size: 2rem;
+        font-weight: lighter;
+        font-family: $font-base;
+        position: absolute;
+        top: 0;
+    }
+    p{
+        position: absolute;
+        top: 50%;
+        transform: translate(0,-50%);
+        text-align: center;
+        font-size: 1.375rem;
+        font-family: $font-base;
+        font-weight: lighter;
+    }
+}
+

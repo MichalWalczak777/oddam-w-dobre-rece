@@ -69,25 +69,25 @@ const DonateStuff = () => {
         }
 
         if (page === 1){
-            !fields.itemsToDonate ? errorsFound.itemsToDonate = "musisz wybrać przedmioty do oddania": errorsFound.itemsToDonate = "";
+            !fields.itemsToDonate && (errorsFound.itemsToDonate = "musisz wybrać przedmioty do oddania");
             setErrors(errorsFound);
             return (!errorsFound.itemsToDonate);
         }
         else if (page === 2){
-            !fields.numberOfBags ? errorsFound.numberOfBags = "musisz wybrać liczbę worków": errorsFound.numberOfBags = "";
+            !fields.numberOfBags && (errorsFound.numberOfBags = "musisz wybrać liczbę worków");
             setErrors(errorsFound);
             return (!errorsFound.numberOfBags);
         }
         else if (page === 3){
-            !fields.location ? errorsFound.location = "musisz wybrać miasto": errorsFound.location = "";
+            !fields.location && (errorsFound.location = "musisz wybrać miasto");
             !fields.beneficiaries && !fields.organization ? errorsFound.beneficiaries = "musisz wybrać komu chcesz pomóc": errorsFound.beneficiaries = "";
             
             setErrors(errorsFound);
             return (!errorsFound.location && !errorsFound.beneficiaries);
         }
         else if (page === 4){
-            fields.street.length < 2 ? errorsFound.street = "musisz wpisać nazwę ulicy": errorsFound.street = "";
-            fields.city.length < 2 ? errorsFound.city = "musisz wpisać nazwę miasta": errorsFound.city = "";
+            fields.street.length < 2 && (errorsFound.street = "musisz wpisać nazwę ulicy");
+            fields.city.length < 2 && (errorsFound.city = "musisz wpisać nazwę miasta");
 
             const postalCodeRegex = /d{2}-\d{3}/;
             !postalCodeRegex.test(fields.postalCode) ? errorsFound.location = "kod pocztowy w formacie xx-xxx": errorsFound.location = "";
@@ -122,11 +122,39 @@ const DonateStuff = () => {
     return (
         <div className="donateStuff">
             <div className="donateStuff-header">
-                <img className="donateStuff-jumperImage" src={jumperImage}></img>
-                <div className="donateStuff-headerText">
-                    <h2>Oddaj rzeczy, których już nie chcesz <br/> POTRZEBUJĄCYM</h2>
-                    <img className="donateStuff-decoration" src={decoration}></img>
-                </div>
+                    <div className="donateStuff-headerText">
+                        <div className="donateStuff-headerTextContent">
+                            <h2>Oddaj rzeczy, których już nie chcesz <br/> POTRZEBUJĄCYM</h2>
+                            <img className="donateStuff-decoration" src={decoration}></img>
+                            <p className="donateStuff-headerParagraph"> Wystarczą 4 proste kroki:</p>
+                            <div className="donateStuff-headerSquares">
+                                <div className="donateStuff-headerSquare">
+                                    <div className="donateStuff-squareText">
+                                        <h6> 1 </h6>
+                                        <p>Wybierz rzeczy</p>
+                                    </div>
+                                </div>
+                                <div className="donateStuff-headerSquare">
+                                    <div className="donateStuff-squareText">
+                                        <h6> 2 </h6>
+                                        <p>Spakuj je w worki</p>
+                                    </div>
+                                </div>
+                                <div className="donateStuff-headerSquare">
+                                    <div className="donateStuff-squareText">
+                                        <h6> 3 </h6>
+                                        <p>Wybierz fundację</p>
+                                    </div>
+                                </div>
+                                <div className="donateStuff-headerSquare">
+                                    <div className="donateStuff-squareText">
+                                        <h6> 4 </h6>
+                                        <p>Zamów kuriera</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             </div>
 
             {step === 1 && 
