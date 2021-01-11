@@ -170,23 +170,23 @@ const DonateStuff = () => {
                         <form className="donateStuff-formBody" onSubmit={e => e.preventDefault()}>
                             <p className="donateStuff-stepNumber">Krok 1/4</p>
                             <h2>Zaznacz co chcesz oddać:</h2>
-                            <div className="donateStuff-step1InputBox">
+                            <div className="donateStuff-step1CheckboxWrapper">
                                 <input type="checkbox" id="cloths-reusable" name="itemsToDonate" value="ubrania w dobrym stanie" checked={fields.itemsToDonate ==="ubrania w dobrym stanie"} onChange={handleChange}/>
                                 <label htmlFor="cloths-reusable">ubrania, które nadają się do ponownego użycia</label>
                             </div>
-                            <div className="donateStuff-step1InputBox">
+                            <div className="donateStuff-step1CheckboxWrapper">
                                 <input type="checkbox" id="cloths-worn" name="itemsToDonate" value="ubrania do wyrzucenia" checked={fields.itemsToDonate ==="ubrania do wyrzucenia"} onChange={handleChange}/>
                                 <label htmlFor="cloths-worn">ubrania, do wyrzucenia</label>
                             </div>
-                            <div className="donateStuff-step1InputBox">
+                            <div className="donateStuff-step1CheckboxWrapper">
                                 <input type="checkbox" id="toys" name="itemsToDonate" value="zabawki" checked={fields.itemsToDonate ==="zabawki"} onChange={handleChange}/>
                                 <label htmlFor="toys">zabawki</label> 
                             </div>
-                            <div className="donateStuff-step1InputBox">
+                            <div className="donateStuff-step1CheckboxWrapper">
                                 <input type="checkbox" id="books" name="itemsToDonate" value="książki" checked={fields.itemsToDonate ==="książki"} onChange={handleChange}/>
                                 <label htmlFor="books">książki</label>
                             </div>
-                            <div className="donateStuff-step1InputBox">
+                            <div className="donateStuff-step1CheckboxWrapper">
                                 <input type="checkbox" id="others" name="itemsToDonate" value="inne" checked={fields.itemsToDonate ==="inne"} onChange={handleChange}/>
                                 <label htmlFor="others">inne</label>
                             </div>
@@ -240,38 +240,41 @@ const DonateStuff = () => {
                     </div>
                 </div>
                 <div className="donateStuff-formBackground">
-                    <form onSubmit={e => e.preventDefault()}>
-                        <p className="donateStuff-stepNumber">Krok 3/4</p>
-                        <h2>Lokalizacja:</h2>
-                        <select name="location" id="location" value={fields.location} onChange={handleChange}>
-                            <option value="" hidden>---Wybierz---</option>
-                            <option value="Poznań">Poznań</option>
-                            <option value="Warszawa">Warszawa</option>
-                            <option value="Kraków">Kraków</option>
-                            <option value="Wrocław">Wrocław</option>
-                            <option value="Katowice">Katowice</option>
-                        </select>
+                    <div className="donateStuff-container">
+                        <form className="donateStuff-formBody" onSubmit={e => e.preventDefault()}>
+                            <p className="donateStuff-stepNumber">Krok 3/4</p>
+                            <h2>Lokalizacja:</h2>
+                            <div className="donateStuff-selectWrapper">
+                                <select name="location" id="location" value={fields.location} onChange={handleChange}>
+                                    <option value="" hidden>---Wybierz---</option>
+                                    <option value="Poznań">Poznań</option>
+                                    <option value="Warszawa">Warszawa</option>
+                                    <option value="Kraków">Kraków</option>
+                                    <option value="Wrocław">Wrocław</option>
+                                    <option value="Katowice">Katowice</option>
+                                </select>
+                            </div>
 
-                        <h5>Komu chcesz pomóc?</h5>
-                        <input type="checkbox" id="beneficiary-1" name="beneficiaries" value="dzieciom" checked={fields.beneficiaries ==="dzieciom"} onChange={handleChange} />
-                        <label htmlFor="beneficiary-1">dzieciom</label>
-                        <input type="checkbox" id="beneficiary-2" name="beneficiaries" value="samotnym matkom" checked={fields.beneficiaries ==="samotnym matkom"} onChange={handleChange}/>
-                        <label htmlFor="beneficiary-2">samotnym matkom</label>
-                        <input type="checkbox" id="beneficiary-3" name="beneficiaries" value="bezdomnym" checked={fields.beneficiaries ==="bezdomnym"} onChange={handleChange}/>
-                        <label htmlFor="beneficiary-3">bezdomnym</label>
-                        <input type="checkbox" id="beneficiary-4" name="beneficiaries" value="niepełnosprawnym" checked={fields.beneficiaries ==="niepełnosprawnym"} onChange={handleChange}/>
-                        <label htmlFor="beneficiary-4">niepełnosprawnym</label>
-                        <input type="checkbox" id="beneficiary-5" name="beneficiaries" value="osobom starszym" checked={fields.beneficiaries ==="osobom starszym"} onChange={handleChange}/>
-                        <label htmlFor="beneficiary-5">Osobom starszym</label>
+                            <h5>Komu chcesz pomóc?</h5>
+                            <div className="donateStuff-step3CheckboxWrapper">
+                                <input type="checkbox" id="beneficiary-1" name="beneficiaries" value="dzieciom" checked={fields.beneficiaries ==="dzieciom"} onChange={handleChange} />
+                                <input type="checkbox" id="beneficiary-2" name="beneficiaries" value="samotnym matkom" checked={fields.beneficiaries ==="samotnym matkom"} onChange={handleChange}/>
+                                <input type="checkbox" id="beneficiary-3" name="beneficiaries" value="bezdomnym" checked={fields.beneficiaries ==="bezdomnym"} onChange={handleChange}/>    
+                            </div>
+                            <div className="donateStuff-step3CheckboxWrapper">
+                                <input type="checkbox" id="beneficiary-4" name="beneficiaries" value="niepełnosprawnym" checked={fields.beneficiaries ==="niepełnosprawnym"} onChange={handleChange}/>
+                                <input type="checkbox" id="beneficiary-5" name="beneficiaries" value="osobom starszym" checked={fields.beneficiaries ==="osobom starszym"} onChange={handleChange}/>
+                            </div>
 
-                        <h5>Wpisz nazwę konkretnej organizacji (opcjonalnie)</h5>
-                        <input type="text" name="organization" id="organization" value={fields.organization} onChange={handleChange}/>
 
-                        <div>
-                            <button className="donateStuff-button" onClick={previousStep}> Wstecz </button>
-                            <button className="donateStuff-button" onClick={nextStep}> Dalej </button>
-                        </div>
-                    </form>
+                            <h5>Wpisz nazwę konkretnej organizacji (opcjonalnie)</h5>
+                            <input type="text" name="organization" id="organization" value={fields.organization} onChange={handleChange}/>
+                            <div className="donateStuff-buttonWrapper">
+                                <button className="donateStuff-button" onClick={previousStep}> Wstecz </button>
+                                <button className="donateStuff-button" onClick={nextStep}> Dalej </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </>} 
 
