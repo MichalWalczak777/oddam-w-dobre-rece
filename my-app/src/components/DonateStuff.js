@@ -256,17 +256,34 @@ const DonateStuff = () => {
                             </div>
 
                             <h5>Komu chcesz pomóc?</h5>
-                            <div className="donateStuff-step3CheckboxWrapper">
-                                <input type="checkbox" id="beneficiary-1" name="beneficiaries" value="dzieciom" checked={fields.beneficiaries ==="dzieciom"} onChange={handleChange} />
-                                <input type="checkbox" id="beneficiary-2" name="beneficiaries" value="samotnym matkom" checked={fields.beneficiaries ==="samotnym matkom"} onChange={handleChange}/>
-                                <input type="checkbox" id="beneficiary-3" name="beneficiaries" value="bezdomnym" checked={fields.beneficiaries ==="bezdomnym"} onChange={handleChange}/>    
+                            <div className="donateStuff-step3MainWrapper">
+                                <div className="donateStuff-step3ColumnWrapper">
+                                    <div className="donateStuff-step1CheckboxWrapper">
+                                        <input type="checkbox" id="beneficiary-1" name="beneficiaries" value="dzieciom" checked={fields.beneficiaries ==="dzieciom"} onChange={handleChange} />
+                                        <label htmlFor="beneficiary-1">dzieciom</label>
+                                    </div>
+                                    <div className="donateStuff-step1CheckboxWrapper">
+                                        <input type="checkbox" id="beneficiary-2" name="beneficiaries" value="samotnym matkom" checked={fields.beneficiaries ==="samotnym matkom"} onChange={handleChange}/>
+                                        <label htmlFor="beneficiary-2">samotnym matkom</label>
+                                    </div>
+                                </div>
+                                <div className="donateStuff-step3ColumnWrapper">
+                                    <div className="donateStuff-step1CheckboxWrapper">
+                                        <input type="checkbox" id="beneficiary-4" name="beneficiaries" value="niepełnosprawnym" checked={fields.beneficiaries ==="niepełnosprawnym"} onChange={handleChange}/>
+                                        <label htmlFor="beneficiary-4">niepełnosprawnym</label>
+                                    </div>
+                                    <div className="donateStuff-step1CheckboxWrapper">
+                                        <input type="checkbox" id="beneficiary-5" name="beneficiaries" value="osobom starszym" checked={fields.beneficiaries ==="osobom starszym"} onChange={handleChange}/>
+                                        <label htmlFor="beneficiary-5">osobom starszym</label>
+                                    </div>
+                                </div>
+                                <div className="donateStuff-step3ColumnWrapper">
+                                    <div className="donateStuff-step1CheckboxWrapper">
+                                        <input type="checkbox" id="beneficiary-3" name="beneficiaries" value="bezdomnym" checked={fields.beneficiaries ==="bezdomnym"} onChange={handleChange}/>    
+                                        <label htmlFor="beneficiary-3">bezdomnym</label>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="donateStuff-step3CheckboxWrapper">
-                                <input type="checkbox" id="beneficiary-4" name="beneficiaries" value="niepełnosprawnym" checked={fields.beneficiaries ==="niepełnosprawnym"} onChange={handleChange}/>
-                                <input type="checkbox" id="beneficiary-5" name="beneficiaries" value="osobom starszym" checked={fields.beneficiaries ==="osobom starszym"} onChange={handleChange}/>
-                            </div>
-
-
                             <h5>Wpisz nazwę konkretnej organizacji (opcjonalnie)</h5>
                             <input type="text" name="organization" id="organization" value={fields.organization} onChange={handleChange}/>
                             <div className="donateStuff-buttonWrapper">
