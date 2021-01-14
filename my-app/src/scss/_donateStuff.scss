@@ -216,6 +216,9 @@ input[name="organization"]{
 
 .donateStuff-step3MainWrapper{
     display: flex;
+    max-width: 50%;
+    flex-wrap: wrap;
+    max-width: 1200px;
     margin-bottom: 40px;
 }
 
@@ -225,50 +228,11 @@ input[name="organization"]{
         margin-left: 0;
     }
 }
-// .donateStuff-step3CheckboxWrapper{
-//     display: flex;
-//     align-items: center;
-//     input{
-//         display: block;
-//         height: 40px;
-//         width: 250px;
-//         margin: 10px;
-//         &:checked::after, &:not(:checked)::after{
-//             content: "";
-//             font-size: 1.5rem;
-//             display: flex;
-//             align-items: center;
-//             justify-content: center;
-//             height: 55px;
-//             width: 250px;
-//             background-color: #FAD648;
-//             border: 0.75px solid #3C3C3C;
-//             cursor: pointer;
-//         }
-//         &:not(:checked)::after{
-//             background-color: #EEEDEB;
-//         }
-//         &[value="dzieciom"]::after{
-//             content: "dzieciom"
-//         }
-//         &[value="samotnym matkom"]::after{
-//             content: "samotnym matkom"
-//         }
-//         &[value="bezdomnym"]::after{
-//             content: "bezdomnym"
-//         }
-//         &[value="niepełnosprawnym"]::after{
-//             content: "niepełnosprawnym"
-//         }
-//         &[value="osobom starszym"]::after{
-//             content: "osobom starszym"
-//         }
-//     }   
-//     margin-bottom: 25px;
-// }
+
 
 .donateStuff-step1CheckboxWrapper{
     display: flex;
+    width: 350px;
     align-items: center;
     margin-top: 50px;
     font-size: 1.5rem;
