@@ -37,6 +37,10 @@ const DonateStuff = () => {
         message: ""
     })
 
+
+    const beneficiariesList = ["dzieciom", "samotnym matkom", "niepełnosprawnym", "osobom starszym", "bezdomnym"];
+    const itemsList = ["ubrania, które nadają się do ponownego użycia", "ubrania, do wyrzucenia", "zabawki", "książki", "inne"];
+
     const handleSubmit = e => {
         console.log("wysłano")
     }
@@ -46,7 +50,6 @@ const DonateStuff = () => {
         setFields(prev => ({
             ...prev,
             [name] : value}));
-            console.log(fields);
     }
 
     const handleChangeCheckbox = e => {
@@ -130,6 +133,14 @@ const DonateStuff = () => {
         validateFields(step) && setStep(prev => prev+1);
     }
 
+
+
+
+
+
+
+
+    
     return (
         <div className="donateStuff">
             <div className="donateStuff-header">
@@ -181,26 +192,13 @@ const DonateStuff = () => {
                         <form className="donateStuff-formBody" onSubmit={e => e.preventDefault()}>
                             <p className="donateStuff-stepNumber">Krok 1/4</p>
                             <h2>Zaznacz co chcesz oddać:</h2>
-                            <div className="donateStuff-step1CheckboxWrapper">
-                                <input type="checkbox" id="cloths-reusable" name="itemsToDonate" value="ubrania w dobrym stanie" checked={fields.itemsToDonate?.includes("ubrania w dobrym stanie")} onChange={handleChangeCheckbox}/>
-                                <label htmlFor="cloths-reusable">ubrania, które nadają się do ponownego użycia</label>
-                            </div>
-                            <div className="donateStuff-step1CheckboxWrapper">
-                                <input type="checkbox" id="cloths-worn" name="itemsToDonate" value="ubrania do wyrzucenia" checked={fields.itemsToDonate?.includes("ubrania do wyrzucenia")} onChange={handleChangeCheckbox}/>
-                                <label htmlFor="cloths-worn">ubrania, do wyrzucenia</label>
-                            </div>
-                            <div className="donateStuff-step1CheckboxWrapper">
-                                <input type="checkbox" id="toys" name="itemsToDonate" value="zabawki" checked={fields.itemsToDonate?.includes("zabawki")} onChange={handleChangeCheckbox}/>
-                                <label htmlFor="toys">zabawki</label> 
-                            </div>
-                            <div className="donateStuff-step1CheckboxWrapper">
-                                <input type="checkbox" id="books" name="itemsToDonate" value="książki" checked={fields.itemsToDonate?.includes("książki")} onChange={handleChangeCheckbox}/>
-                                <label htmlFor="books">książki</label>
-                            </div>
-                            <div className="donateStuff-step1CheckboxWrapper">
-                                <input type="checkbox" id="others" name="itemsToDonate" value="inne" checked={fields.itemsToDonate?.includes("inne")} onChange={handleChangeCheckbox}/>
-                                <label htmlFor="others">inne</label>
-                            </div>
+                            {itemsList?.map((itemName, i) => (
+                                                    <div className="donateStuff-step1CheckboxWrapper" key={itemName}>
+                                                        <input type="checkbox" id={`items-${i}`} name="itemsToDonate" value={itemName} 
+                                                        checked={fields.itemsToDonate.includes(itemName)} onChange={handleChangeCheckbox} />
+                                                        <label htmlFor={`items-${i}`}>{itemName}</label>
+                                                    </div>
+                            ))}
                             <div className="donateStuff-buttonWrapper">
                                 <button className="donateStuff-button" onClick={nextStep}> Dalej </button>                   
                             </div>
@@ -267,33 +265,15 @@ const DonateStuff = () => {
                             </div>
 
                             <h5>Komu chcesz pomóc?</h5>
+
                             <div className="donateStuff-step3MainWrapper">
-                                <div className="donateStuff-step3ColumnWrapper">
-                                    <div className="donateStuff-step1CheckboxWrapper">
-                                        <input type="checkbox" id="beneficiary-1" name="beneficiaries" value="dzieciom" checked={fields.beneficiaries.includes("dzieciom")} onChange={handleChangeCheckbox} />
-                                        <label htmlFor="beneficiary-1">dzieciom</label>
-                                    </div>
-                                    <div className="donateStuff-step1CheckboxWrapper">
-                                        <input type="checkbox" id="beneficiary-2" name="beneficiaries" value="samotnym matkom" checked={fields.beneficiaries.includes("samotnym matkom")} onChange={handleChangeCheckbox}/>
-                                        <label htmlFor="beneficiary-2">samotnym matkom</label>
-                                    </div>
-                                </div>
-                                <div className="donateStuff-step3ColumnWrapper">
-                                    <div className="donateStuff-step1CheckboxWrapper">
-                                        <input type="checkbox" id="beneficiary-4" name="beneficiaries" value="niepełnosprawnym" checked={fields.beneficiaries.includes("niepełnosprawnym")} onChange={handleChangeCheckbox}/>
-                                        <label htmlFor="beneficiary-4">niepełnosprawnym</label>
-                                    </div>
-                                    <div className="donateStuff-step1CheckboxWrapper">
-                                        <input type="checkbox" id="beneficiary-5" name="beneficiaries" value="osobom starszym" checked={fields.beneficiaries.includes("osobom starszym")} onChange={handleChangeCheckbox}/>
-                                        <label htmlFor="beneficiary-5">osobom starszym</label>
-                                    </div>
-                                </div>
-                                <div className="donateStuff-step3ColumnWrapper">
-                                    <div className="donateStuff-step1CheckboxWrapper">
-                                        <input type="checkbox" id="beneficiary-3" name="beneficiaries" value="bezdomnym" checked={fields.beneficiaries.includes("bezdomnym")} onChange={handleChangeCheckbox}/>    
-                                        <label htmlFor="beneficiary-3">bezdomnym</label>
-                                    </div>
-                                </div>
+                            {beneficiariesList?.map((beneficiaryName, i) => (
+                                                    <div className="donateStuff-step1CheckboxWrapper" key={beneficiaryName}>
+                                                        <input type="checkbox" id={`beneficiary-${i}`} name="beneficiaries" value={beneficiaryName} 
+                                                        checked={fields.beneficiaries.includes(beneficiaryName)} onChange={handleChangeCheckbox} />
+                                                        <label htmlFor={`beneficiary-${i}`}>{beneficiaryName}</label>
+                                                    </div>
+                            ))}
                             </div>
                             <h5>Wpisz nazwę konkretnej organizacji (opcjonalnie)</h5>
                             <input type="text" name="organization" id="organization" value={fields.organization} onChange={handleChange}/>
