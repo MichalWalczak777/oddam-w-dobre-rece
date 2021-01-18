@@ -40,6 +40,11 @@ const DonateStuff = () => {
 
     const beneficiariesList = ["dzieciom", "samotnym matkom", "niepełnosprawnym", "osobom starszym", "bezdomnym"];
     const itemsList = ["ubrania, które nadają się do ponownego użycia", "ubrania, do wyrzucenia", "zabawki", "książki", "inne"];
+    const adressData = [{label: "Ulica", name: "street"}, {label: "Miasto", name: "city"}, {label:"Kod pocztowy", name: "postalCode"}, {label:"Numer telefonu", name: "phoneNumber"}];
+    const timeData = [{label: "Data", name: "date"}, {label:"Godzina", name: "hour"}];
+
+    console.log(fields);
+    console.log(errors);
 
     const handleSubmit = e => {
         console.log("wysłano")
@@ -295,42 +300,50 @@ const DonateStuff = () => {
                     </div>
                 </div>
                 <div className="donateStuff-formBackground">
-                    <form onSubmit={e => e.preventDefault()}>
-                        <p className="donateStuff-stepNumber">Krok 4/4</p>
-                        <h5>Podaj adres oraz termin odbioru rzeczy przez kuriera</h5>
-                        <div className="donateStuff-formColumns">
-                            <div className="donateStuff-formColumn">
-                                <p>Adres odbioru:</p>
-                                <label htmlFor="street">Ulica</label>
-                                <input type="text" name="street" id="street" value={fields.street} onChange={handleChange}/>
-                                {errors.street}
-                                <label htmlFor="city">Miasto</label>
-                                <input type="text" name="city" id="city" value={fields.city} onChange={handleChange}/>
-                                {errors.city}
-                                <label htmlFor="postalCode">Kod pocztowy</label>
-                                <input type="text" name="postalCode" id="postalCode" value={fields.postalCode} onChange={handleChange}/>
-                                {errors.postalCode}
-                                <label htmlFor="phoneNumber">Numer telefonu</label>
-                                <input type="text" name="phoneNumber" id="phoneNumber" value={fields.phoneNumber} onChange={handleChange}/>
-                                {errors.phoneNumber}                                                                                    
+                    <div className="donateStuff-container">
+                        <form className="donateStuff-formBody" onSubmit={e => e.preventDefault()}>
+                            <p className="donateStuff-stepNumber">Krok 4/4</p>
+                            <h2>Podaj adres oraz termin odbioru rzeczy przez kuriera</h2>
+                            <div className="donateStuff-formColumns">
+                                <div className="donateStuff-formColumn">
+                                    <p>Adres odbioru:</p>
+                                    {adressData?.map((data, i) => (
+                                                        <>
+                                                            <div className="donateStuff-formColumnField" key={"contact"+data.name}>
+                                                                <label htmlFor={data.name}>{data.label}</label>
+                                                                <input type="text" id={data.name} name={data.name} onChange={handleChange} />  
+                                                            </div>
+                                                            <div className="general-errorMessage">
+                                                                {errors[data.name]}
+                                                            </div>
+                                                        </>
+                                    ))}
+                                </div>
+                                <div className="donateStuff-formColumn">
+                                    <p>Termin odbioru:</p>
+                                    {timeData?.map((data, i) => (
+                                                    <>
+                                                        <div className="donateStuff-formColumnField" key={"contact"+data.name}>
+                                                            <label htmlFor={data.name}>{data.label}</label>
+                                                            <input type="text" id={data.name} name={data.name} onChange={handleChange} />
+                                                        </div>
+                                                        <div className="general-errorMessage">
+                                                            {errors[data.name]}
+                                                        </div>
+                                                    </>
+                                    ))}
+                                    <div className="donateStuff-formColumnField">
+                                        <label htmlFor="message">Uwagi dla kuriera</label>
+                                        <textarea name="message" id="message" value={fields.message} onChange={handleChange}/> 
+                                    </div>
+                                </div>
                             </div>
-                            <div className="donateStuff-formColumn">
-                                <p>Termin odbioru:</p>
-                                <label htmlFor="date">Data</label>
-                                <input type="text" name="date" id="date" value={fields.date} onChange={handleChange}/>
-                                {errors.date}
-                                <label htmlFor="hour">Godzina</label>
-                                <input type="text" name="hour" id="hour" value={fields.hour} onChange={handleChange}/>
-                                {errors.hour}
-                                <label htmlFor="message">Uwagi dla kuriera</label>
-                                <textarea name="message" id="message" value={fields.message} onChange={handleChange}/> 
+                            <div className="donateStuff-buttonWrapper">
+                                <button className="donateStuff-button" onClick={previousStep}> Wstecz </button>
+                                <button className="donateStuff-button" onClick={nextStep}> Dalej </button>
                             </div>
-                        </div>
-                        <div>
-                            <button className="donateStuff-button" onClick={previousStep}> Wstecz </button>
-                            <button className="donateStuff-button" onClick={nextStep}> Dalej </button>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </>}
 
@@ -358,7 +371,7 @@ const DonateStuff = () => {
                 </div>
                 <div>
                     <button className="donateStuff-button" onClick={previousStep}> Wstecz </button>
-                    <button className="donateStuff-button" onClick={handleSubmit}> Potwierdź </button>
+                    <button className="donateStuff-button" onClick={handleSubmit}> Potwierdzam </button>
                 </div>
             </div>}
 
@@ -366,9 +379,7 @@ const DonateStuff = () => {
             <div className="donateStuff-formBackground">
                 Dziękóweczka
             </div>}
-
-            <HomeContact></HomeContact>  
-
+            <HomeContact></HomeContact>   
         </div>
     )
 }

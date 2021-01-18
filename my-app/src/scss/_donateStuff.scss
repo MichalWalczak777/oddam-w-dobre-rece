@@ -135,36 +135,6 @@
     }
 }
 
-.donateStuff-step1CheckboxWrapper{
-    display: flex;
-    align-items: center;
-    margin-top: 50px;
-    font-size: 1.5rem;
-    input{
-        height: 40px;
-        width: 40px;
-        margin-right: 30px;
-        &:checked::after{
-            content: "";
-            display: block;
-            height: 40px;
-            width: 40px;
-            background-color: #FAD648;
-            border: 0.75px solid #3C3C3C;
-            cursor: pointer;
-        }
-        &:not(:checked)::after{
-            content: "";
-            display: block;
-            height: 40px;
-            width: 40px;
-            background-color: #EEEDEB;
-            border: 0.75px solid #3C3C3C;
-            cursor: pointer;
-        }
-    }
-}
-
 .donateStuff-buttonWrapper{
     height: 100%;
     display: flex;
@@ -259,6 +229,44 @@ input[name="organization"]{
             cursor: pointer;
         }
     }
+}
+
+.donateStuff-formColumns{
+    max-width: 1000px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.donateStuff-formColumn{
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    p{
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 30px;
+    }
+    label{
+        width: 110px;
+        font-size: 1.5rem;
+        font-weight: 300;
+        margin-right: 30px;
+    }
+    input, textarea{
+        width: 260px;
+        height: 40px;
+    }
+    textarea{
+        height: 120px;
+        background-color: #EEEDEB;
+    }
+}
+
+.donateStuff-formColumnField{
+    display: flex;
+    margin: 10px 10px;
+    margin-left: 0;
 }
 
 
