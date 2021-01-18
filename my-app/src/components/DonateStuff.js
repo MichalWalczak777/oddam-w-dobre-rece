@@ -3,6 +3,9 @@ import HomeContact from "./HomeContact";
 import decoration from "../assets/Decoration.svg";
 import {useState} from "react";
 
+import shirtIcon from "../assets/Shirt_icon.png";
+import recycleIcon from "../assets/Recycle_icon.png";
+
 const DonateStuff = () => {
 
     const [step, setStep] = useState(1);
@@ -43,11 +46,10 @@ const DonateStuff = () => {
     const adressData = [{label: "Ulica", name: "street"}, {label: "Miasto", name: "city"}, {label:"Kod pocztowy", name: "postalCode"}, {label:"Numer telefonu", name: "phoneNumber"}];
     const timeData = [{label: "Data", name: "date"}, {label:"Godzina", name: "hour"}];
 
-    console.log(fields);
-    console.log(errors);
 
     const handleSubmit = e => {
-        console.log("wysłano")
+        console.log("wysłano");
+        nextStep();
     }
 
     const handleChange = e =>{
@@ -306,31 +308,31 @@ const DonateStuff = () => {
                             <h2>Podaj adres oraz termin odbioru rzeczy przez kuriera</h2>
                             <div className="donateStuff-formColumns">
                                 <div className="donateStuff-formColumn">
-                                    <p>Adres odbioru:</p>
+                                    <h5>Adres odbioru:</h5>
                                     {adressData?.map((data, i) => (
-                                                        <>
-                                                            <div className="donateStuff-formColumnField" key={"contact"+data.name}>
+                                                        <div key={"contact"+data.name}>
+                                                            <div className="donateStuff-formColumnField" >
                                                                 <label htmlFor={data.name}>{data.label}</label>
-                                                                <input type="text" id={data.name} name={data.name} onChange={handleChange} />  
+                                                                <input type="text" id={data.name} name={data.name} value={fields[data.name]} onChange={handleChange} />  
                                                             </div>
                                                             <div className="general-errorMessage">
                                                                 {errors[data.name]}
                                                             </div>
-                                                        </>
+                                                        </div>
                                     ))}
                                 </div>
                                 <div className="donateStuff-formColumn">
-                                    <p>Termin odbioru:</p>
+                                    <h5>Termin odbioru:</h5>
                                     {timeData?.map((data, i) => (
-                                                    <>
-                                                        <div className="donateStuff-formColumnField" key={"contact"+data.name}>
+                                                    <div key={"contact"+data.name}>
+                                                        <div className="donateStuff-formColumnField">
                                                             <label htmlFor={data.name}>{data.label}</label>
-                                                            <input type="text" id={data.name} name={data.name} onChange={handleChange} />
+                                                            <input type="text" id={data.name} name={data.name} value={fields[data.name]} onChange={handleChange} />
                                                         </div>
                                                         <div className="general-errorMessage">
                                                             {errors[data.name]}
                                                         </div>
-                                                    </>
+                                                    </div>
                                     ))}
                                     <div className="donateStuff-formColumnField">
                                         <label htmlFor="message">Uwagi dla kuriera</label>
@@ -349,35 +351,68 @@ const DonateStuff = () => {
 
             {step === 5 &&
             <div className="donateStuff-formBackground">
-                <h6>Oddajesz</h6>
-                <p>{fields.numberOfBags + "(" + fields.itemsToDonate + ") " + fields.beneficiaries}</p>
-                <p></p>
-                <p>dla lokalizacji: {fields.location}</p>
-
-                <div>
-                    <div>
-                        <h6>Adres odbioru:</h6>
-                        <p>Ulica: {fields.street}</p>
-                        <p>Miasto: {fields.city}</p>
-                        <p>Kod pocztowy: {fields.postalCode}</p>
-                        <p>Numer telefonu: {fields.phoneNumber}</p>
-                    </div>
-                    <div>
-                        <h6>Termin odbioru:</h6>
-                        <p>Data: {fields.date}</p>
-                        <p>Godzina: {fields.hour}</p>
-                        <p>Uwagi dla kuriera: {fields.message}</p>
-                    </div>
-                </div>
-                <div>
-                    <button className="donateStuff-button" onClick={previousStep}> Wstecz </button>
-                    <button className="donateStuff-button" onClick={handleSubmit}> Potwierdzam </button>
+                <div className="donateStuff-container">
+                    <form className="donateStuff-formBody" onSubmit={e => e.preventDefault()}>
+                        <h2>Podsumowanie Twojej darowizny</h2>
+                        <h5>Oddajesz: </h5>
+                        <p className="donateStuff-summaryIconParagraph">
+                            <img src={shirtIcon} alt="koszulka"/>{fields.numberOfBags + " (" + fields.itemsToDonate + ") " + fields.beneficiaries}
+                        </p>
+                        <p className="donateStuff-summaryIconParagraph">
+                            <img src={recycleIcon} alt="symbol recyclingu"/>dla lokalizacji: {fields.location}
+                        </p>
+                        <div className="donateStuff-formColumns donateStuff-summaryColumns">
+                            <div className="donateStuff-formColumn">
+                                <h5>Adres odbioru:</h5>
+                                <div className="donateStuff-formColumnField">
+                                    <p>Ulica</p>
+                                    <p className="donateStuff-formColumnData">{fields.street}</p>
+                                </div>
+                                <div className="donateStuff-formColumnField">
+                                    <p>Miasto</p>
+                                    <p className="donateStuff-formColumnData">{fields.city}</p>
+                                </div>
+                                <div className="donateStuff-formColumnField">
+                                    <p>Kod pocztowy </p>
+                                    <p className="donateStuff-formColumnData">{fields.postalCode}</p>
+                                </div>
+                                <div className="donateStuff-formColumnField">
+                                    <p>Numer telefonu </p>
+                                    <p className="donateStuff-formColumnData">{fields.phoneNumber}</p>
+                                </div>
+                            </div>
+                            <div className="donateStuff-formColumn">
+                                <h5>Termin odbioru:</h5>
+                                <div className="donateStuff-formColumnField">
+                                    <p>Data</p>
+                                    <p className="donateStuff-formColumnData"> {fields.date}</p>
+                                </div>
+                                <div className="donateStuff-formColumnField">
+                                    <p>Godzina</p>
+                                    <p className="donateStuff-formColumnData">{fields.hour}</p>
+                                </div>
+                                <div className="donateStuff-formColumnField">
+                                    <p>Uwagi dla kuriera</p>
+                                    <p className="donateStuff-formColumnData">{fields.message}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="donateStuff-buttonWrapper">
+                            <button className="donateStuff-button" onClick={previousStep}> Wstecz </button>
+                            <button className="donateStuff-button" onClick={handleSubmit}> Potwierdzam </button>
+                        </div>
+                    </form>
                 </div>
             </div>}
 
             {step === 6 &&
             <div className="donateStuff-formBackground">
-                Dziękóweczka
+                <div className="donateStuff-goodbyeFlexBox">
+                    <div className="donateStuff-goodbyeWrapper">
+                        <h2 className="donateStuff-goodbye"> Dziękujemy za przesłanie formularza Na maila prześlemy wszelkie informacje o odbiorze.</h2>
+                        <img className="general-decoration donateStuff-decoration" src={decoration}/>
+                    </div>
+                </div>
             </div>}
             <HomeContact></HomeContact>   
         </div>
