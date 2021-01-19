@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useContext, useState, useEffect} from "react";
 import {Link, useLocation} from "react-router-dom";
 import {Link as ScrollLink, Element, Events, animateScroll as scroll, scrollSpy, scroller} from "react-scroll";
 import { AuthContext } from "./Auth";
@@ -6,10 +6,26 @@ import { AuthContext } from "./Auth";
 const HomeHeader = () => {
 
     const {currentUser} = useContext(AuthContext);
+
+    const [isOnTop, setIsOnTop] = useState(true);
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
     
+        return () => {
+          window.removeEventListener('scroll', () => handleScroll);
+        };
+    }, []);
+
+    const handleScroll = e => {
+            console.log(isOnTop);
+            console.log(window.scrollY);
+            setIsOnTop(window.scrollY <= 20);
+    }
+
     return (
-        <div className="container homeHeader-container">
-            <ul className="homeHeader-navlist navlist-1">
+        <div className={`${isOnTop ? "container homeHeader-navMenuTop" : " homeHeader-navMenuScrolled"}`}>
+            <ul className="homeHeader-navlist homeHeader-navlist-1">
                 <li>
                 {currentUser?.email}
                 </li>
@@ -24,7 +40,7 @@ const HomeHeader = () => {
                 </li>
             </ul>
 
-            <ul className="homeHeader-navlist navlist-2">
+            <ul className="homeHeader-navlist homeHeader-navlist-2">
                 <li>
                     <ScrollLink activeClass="active" to="start" spy={true} smooth={true} duration={1000}>Start</ScrollLink>
                 </li>
