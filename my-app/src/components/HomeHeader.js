@@ -1,5 +1,6 @@
 import React, {useContext, useState, useEffect} from "react";
-import {Link, useLocation} from "react-router-dom";
+import {Link} from "react-router-dom";
+import {HashLink} from "react-router-hash-link";
 import {Link as ScrollLink, Element, Events, animateScroll as scroll, scrollSpy, scroller} from "react-scroll";
 import { AuthContext } from "./Auth";
 
@@ -18,20 +19,18 @@ const HomeHeader = () => {
     }, []);
 
     const handleScroll = e => {
-            console.log(isOnTop);
-            console.log(window.scrollY);
             setIsOnTop(window.scrollY <= 20);
     }
 
     return (
         <div className={`${isOnTop ? "container homeHeader-navMenuTop" : " homeHeader-navMenuScrolled"}`}>
             <ul className="homeHeader-navlist homeHeader-navlist-1">
-                <li>
+                <p>
                 {currentUser?.email}
-                </li>
+                </p>
                 <li>            
                 {currentUser 
-                    ? <Link to={"/donateStuff"}> Oddaj rzeczy </Link> 
+                    ? <HashLink to={"/donateStuff#top"} scroll={(el) => el.scrollIntoView({ behavior: 'smooth'})}> Oddaj rzeczy </HashLink> 
                     : <Link to={"/login"}> Zaloguj się </Link>}
                 </li>
                 <li>{currentUser 
@@ -42,19 +41,19 @@ const HomeHeader = () => {
 
             <ul className="homeHeader-navlist homeHeader-navlist-2">
                 <li>
-                    <ScrollLink activeClass="active" to="start" spy={true} smooth={true} duration={1000}>Start</ScrollLink>
+                    <HashLink to={"/#top"} scroll={(el) => el.scrollIntoView({ behavior: 'smooth'})}>Start</HashLink>
                 </li>
                 <li>
-                    <ScrollLink activeClass="active" to="donate" spy={true} smooth={true} duration={1000}>O co chodzi?</ScrollLink>
+                    <HashLink to={"/#donate"} scroll={(el) => el.scrollIntoView({ behavior: 'smooth'})}>O co chodzi?</HashLink>
                 </li>
                 <li>
-                    <ScrollLink activeClass="active" to="aboutUs" spy={true} smooth={true} duration={1000}>O nas</ScrollLink>
+                    <HashLink to={"/#aboutUs"} scroll={(el) => el.scrollIntoView({ behavior: 'smooth'})}>O nas</HashLink>
                 </li>
                 <li>
-                    <ScrollLink activeClass="active" to="organizations" spy={true} smooth={true} duration={1000}>Fundacja i organizacje</ScrollLink>
+                    <HashLink to={"/#organizations"} scroll={(el) => el.scrollIntoView({ behavior: 'smooth'})}>Fundacje i organizacje</HashLink>
                 </li>
                 <li>
-                    <ScrollLink activeClass="active" to="contact" spy={true} smooth={true} duration={1000}>Kontakt</ScrollLink>
+                    <HashLink to={"/#contact"} scroll={(el) => el.scrollIntoView({ behavior: 'smooth'})}>Kontakt</HashLink>
                 </li>
             </ul>
         </div>
