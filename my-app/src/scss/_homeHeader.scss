@@ -12,8 +12,11 @@
 .homeHeader-navlist{
     display: flex;
     justify-content: flex-end;
-    li{
+    li, p{
         padding: 10px;
+    }
+    p{
+        cursor: default;
     }
 }
     
@@ -24,10 +27,12 @@
     
 .homeHeader-navlist-2{
     font-size: 1.125rem;
+    cursor: pointer;
 }
 
 
 .homeHeader-navMenuScrolled{
+    padding-top: 10px;
     width: 100vw;
     display: flex;
     flex-direction: column;
