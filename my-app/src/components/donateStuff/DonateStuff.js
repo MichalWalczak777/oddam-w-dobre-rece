@@ -1,10 +1,10 @@
 import React from "react";
-import HomeContact from "./HomeContact";
-import decoration from "../assets/Decoration.svg";
+import HomeContact from "../home/homeContact/HomeContact";
+import decoration from "../../assets/Decoration.svg";
 import {useState} from "react";
 
-import shirtIcon from "../assets/Shirt_icon.png";
-import recycleIcon from "../assets/Recycle_icon.png";
+import shirtIcon from "../../assets/Shirt_icon.png";
+import recycleIcon from "../../assets/Recycle_icon.png";
 
 const DonateStuff = () => {
 

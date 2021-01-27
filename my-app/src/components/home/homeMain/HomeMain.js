@@ -1,8 +1,8 @@
 import React from "react";
-import HomeThreeColumns from "./HomeThreeColumns";
+import HomeThreeColumns from "../homeThreeColumns/HomeThreeColumns";
 import {Link} from "react-router-dom";
-import image from "../assets/Home-Hero-Image.jpg";
-import decoration from "../assets/Decoration.svg";
+import image from "../../../assets/Home-Hero-Image.jpg";
+import decoration from "../../../assets/Decoration.svg";
 
 
 

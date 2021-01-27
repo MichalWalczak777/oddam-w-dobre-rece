@@ -1,7 +1,7 @@
 import React from "react";
 import {useState, useEffect} from "react";
 import HomeFundationsDisplay from "./HomeFundationsDisplay";
-import decoration from "../assets/Decoration.svg";
+import decoration from "../../../assets/Decoration.svg";
 
 const HomeFundations = () => {
 

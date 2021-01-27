@@ -1,15 +1,15 @@
-.homeHeader-navMenuTop, .homeHeader-navMenuScrolled{
+.appHeader-navMenuTop, .homeHeader-navMenuScrolled{
     top: 0;
     position: fixed;
     background-color: #fff;
     z-index: 2;
 }
 
-.homeHeader-navMenuTop{
+.appHeader-navMenuTop{
     right:150px;
 }
     
-.homeHeader-navlist{
+.appHeader-navlist{
     display: flex;
     justify-content: flex-end;
     li, p{
@@ -20,18 +20,18 @@
     }
 }
     
-.homeHeader-navlist-1{
+.appHeader-navlist-1{
     color: #737373;
     font-size: 0.875rem;
 }
     
-.homeHeader-navlist-2{
+.appHeader-navlist-2{
     font-size: 1.125rem;
     cursor: pointer;
 }
 
 
-.homeHeader-navMenuScrolled{
+.appHeader-navMenuScrolled{
     padding-top: 10px;
     width: 100vw;
     display: flex;

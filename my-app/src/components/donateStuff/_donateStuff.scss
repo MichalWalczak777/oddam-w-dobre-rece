@@ -2,7 +2,7 @@
     height: 850px;
     display: flex;
     flex-direction: column;
-    background-image: url(../assets/Form-Hero-Image.jpg);
+    background-image: url(../../assets/Form-Hero-Image.jpg);
     background-repeat: no-repeat;
 }
 
@@ -104,7 +104,7 @@
 
 
 .donateStuff-formBackground{
-    background-image: url("../assets/Background-Form.jpg");
+    background-image: url("../../assets/Background-Form.jpg");
     height: 880px;
 }
 
@@ -163,7 +163,7 @@
         height: 50px;
         width: 300px;
         appearance: none;
-        background: url("../assets/Icon-Arrow-Down.svg") 96% / 15% no-repeat #EEEDEB;
+        background: url("../../assets/Icon-Arrow-Down.svg") 96% / 15% no-repeat #EEEDEB;
         margin-bottom: 50px;
         &[name="numberOfBags"]{
             margin: 50px;

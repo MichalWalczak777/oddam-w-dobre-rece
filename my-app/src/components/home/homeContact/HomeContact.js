@@ -1,8 +1,8 @@
 import React from "react";
 import {useState, useRef} from "react";
-import decoration from "../assets/Decoration.svg";
-import facebook from "../assets/Facebook.svg";
-import instagram from "../assets/Instagram.svg";
+import decoration from "../../../assets/Decoration.svg";
+import facebook from "../../../assets/Facebook.svg";
+import instagram from "../../../assets/Instagram.svg";
 import axios from "axios";
 
 const HomeContact = () => {
