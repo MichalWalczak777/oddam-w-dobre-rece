@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Redirect } from "react-router-dom";
 import {Link} from "react-router-dom";
-import app from "../firebase";
-import decoration from "../assets/Decoration.svg";
+import app from "../../firebase";
+import decoration from "../../assets/Decoration.svg";
 
 const LoggedOut = () => {
 

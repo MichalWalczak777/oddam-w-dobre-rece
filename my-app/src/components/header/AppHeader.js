@@ -2,9 +2,9 @@ import React, {useContext, useState, useEffect} from "react";
 import {Link} from "react-router-dom";
 import {HashLink} from "react-router-hash-link";
 import {Link as ScrollLink, Element, Events, animateScroll as scroll, scrollSpy, scroller} from "react-scroll";
-import { AuthContext } from "./Auth";
+import { AuthContext } from "../authentication/Auth";
 
-const HomeHeader = () => {
+const AppHeader = () => {
 
     const {currentUser} = useContext(AuthContext);
 
@@ -23,8 +23,8 @@ const HomeHeader = () => {
     }
 
     return (
-        <div className={`${isOnTop ? "container homeHeader-navMenuTop" : " homeHeader-navMenuScrolled"}`}>
-            <ul className="homeHeader-navlist homeHeader-navlist-1">
+        <div className={`${isOnTop ? "container appHeader-navMenuTop" : " appHeader-navMenuScrolled"}`}>
+            <ul className="appHeader-navlist appHeader-navlist-1">
                 <p>
                 {currentUser?.email}
                 </p>
@@ -39,7 +39,7 @@ const HomeHeader = () => {
                 </li>
             </ul>
 
-            <ul className="homeHeader-navlist homeHeader-navlist-2">
+            <ul className="appHeader-navlist appHeader-navlist-2">
                 <li>
                     <HashLink to={"/#top"} scroll={(el) => el.scrollIntoView({ behavior: 'smooth'})}>Start</HashLink>
                 </li>
@@ -60,4 +60,4 @@ const HomeHeader = () => {
     );
 }
 
-export default HomeHeader;
+export default AppHeader;

@@ -1,11 +1,11 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-import decoration from "../assets/Decoration.svg";
-import shirtIcon from "../assets/Icon-1.svg";
-import bagIcon from "../assets/Icon-2.svg";
-import magnifierIcon from "../assets/Icon-3.svg";
-import recycleIcon from "../assets/Icon-4.svg";
+import decoration from "../../../assets/Decoration.svg";
+import shirtIcon from "../../../assets/Icon-1.svg";
+import bagIcon from "../../../assets/Icon-2.svg";
+import magnifierIcon from "../../../assets/Icon-3.svg";
+import recycleIcon from "../../../assets/Icon-4.svg";
 
 const HomeDonate = () => {
     return (

@@ -2,17 +2,18 @@
 @import "fonts";
 @import "colors";
 @import "general";
-@import "homeHeader";
-@import "homeMain";
-@import "homeThreeColumns";
-@import "homeDonate";
-@import "homeAboutUs";
-@import "homeFundations";
-@import "homeFundationsDisplay";
-@import "pagination";
-@import "homeContact";
-@import "login";
-@import "donateStuff";
+
+@import "../components/header/appHeader";
+@import "../components/home/homeMain/homeMain";
+@import "../components/home/homeThreeColumns/homeThreeColumns";
+@import "../components/home/homeDonate/homeDonate";
+@import "../components/home/homeAboutUs/homeAboutUs";
+@import "../components/home/homeFundations/homeFundations";
+@import "../components/home/homeFundations/homeFundationsDisplay";
+@import "../components/home/homeFundations/pagination";
+@import "../components/home/homeContact/homeContact";
+@import "../components/authentication/login";
+@import "../components/donateStuff/donateStuff";
 
 
 
