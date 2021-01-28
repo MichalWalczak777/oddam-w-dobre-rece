@@ -235,7 +235,7 @@ input[name="organization"]{
 }
 
 .donateStuff-summaryColumns{
-    max-width: 800px;
+    max-width: 900px;
     margin-top: 0;
 }
 
@@ -255,8 +255,10 @@ input[name="organization"]{
         font-weight: 300;
         margin-right: 30px;
     }
-    .donateStuff-formColumnData{
-        width: auto;
+    .donateStuff-formColumnMessage{
+        overflow-y: scroll;
+        width: 250px;
+        max-height: 150px;
     }
     input, textarea{
         width: 260px;
