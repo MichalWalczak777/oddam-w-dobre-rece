@@ -359,7 +359,7 @@ const DonateStuff = () => {
                                 </div>
                                 <div className="donateStuff-formColumnField">
                                     <p>Uwagi dla kuriera</p>
-                                    <p className="donateStuff-formColumnData">{fields.message}</p>
+                                    <p className="donateStuff-formColumnData donateStuff-formColumnMessage">{fields.message}</p>
                                 </div>
                             </div>
                         </div>
