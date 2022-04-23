@@ -1,7 +1,6 @@
 import React, {useContext, useState, useEffect} from "react";
 import {Link} from "react-router-dom";
 import {HashLink} from "react-router-hash-link";
-import {Link as ScrollLink, Element, Events, animateScroll as scroll, scrollSpy, scroller} from "react-scroll";
 import { AuthContext } from "../authentication/Auth";
 
 const AppHeader = () => {
@@ -22,12 +21,14 @@ const AppHeader = () => {
             setIsOnTop(window.scrollY <= 20);
     }
 
+    const contentMenuList = [{path: "/#top", description: "Start"}, {path: "/#donate", description: "O co chodzi?"}, {path: "/#aboutUs", description: "O nas"}, {path: "/#organizations", description: "Fundacje i organizacje"}, {path: "/#contact", description: "Kontakt"}];
+
     return (
         <div className={`${isOnTop ? "container appHeader-navMenuTop" : " appHeader-navMenuScrolled"}`}>
-            <ul className="appHeader-navlist appHeader-navlist-1">
-                <p>
+            <ul className="appHeader-authMenu">
+                <li className='appHeader-currentUserDisplayed'>
                 {currentUser?.email}
-                </p>
+                </li>
                 <li>            
                 {currentUser 
                     ? <HashLink to={"/donateStuff#top"} scroll={(el) => el.scrollIntoView({ behavior: 'smooth'})}> Oddaj rzeczy </HashLink> 
@@ -39,22 +40,11 @@ const AppHeader = () => {
                 </li>
             </ul>
 
-            <ul className="appHeader-navlist appHeader-navlist-2">
-                <li>
-                    <HashLink to={"/#top"} scroll={(el) => el.scrollIntoView({ behavior: 'smooth'})}>Start</HashLink>
-                </li>
-                <li>
-                    <HashLink to={"/#donate"} scroll={(el) => el.scrollIntoView({ behavior: 'smooth'})}>O co chodzi?</HashLink>
-                </li>
-                <li>
-                    <HashLink to={"/#aboutUs"} scroll={(el) => el.scrollIntoView({ behavior: 'smooth'})}>O nas</HashLink>
-                </li>
-                <li>
-                    <HashLink to={"/#organizations"} scroll={(el) => el.scrollIntoView({ behavior: 'smooth'})}>Fundacje i organizacje</HashLink>
-                </li>
-                <li>
-                    <HashLink to={"/#contact"} scroll={(el) => el.scrollIntoView({ behavior: 'smooth'})}>Kontakt</HashLink>
-                </li>
+            <ul className="appHeader-contentMenu">
+                {contentMenuList.map(menuElement => <li key={menuElement.description}>
+                                                        <HashLink to={menuElement.path} scroll={(el) => el.scrollIntoView({ behavior: 'smooth'})}>{menuElement.description}</HashLink>
+                                                    </li>
+                )}
             </ul>
         </div>
     );
