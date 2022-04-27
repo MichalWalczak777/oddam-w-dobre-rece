@@ -1,15 +1,15 @@
-.appHeader-navMenuTop, .appHeader-navMenuScrolled{
+.appHeader-navMenuDesktopTop, .appHeader-navMenuDesktopScrolled{
     top: 0;
     position: fixed;
     background-color: #fff;
     z-index: 2;
 }
 
-.appHeader-navMenuTop{
-    right:150px;
+.appHeader-navMenuDesktopTop{
+    right: 150px;
 }
 
-.appHeader-navMenuScrolled{
+.appHeader-navMenuDesktopScrolled{
     padding-top: 10px;
     width: 100vw;
     display: flex;
@@ -18,6 +18,10 @@
     left:50%;
     transform: translate(-50%, 0);
     padding-bottom: 20px;
+}
+
+.appHeader-navMenuMobile{
+    display: none;
 }
     
 .appHeader-authMenu, .appHeader-contentMenu{
@@ -39,4 +43,33 @@
 .appHeader-contentMenu{
     font-size: 1.125rem;
     cursor: pointer;
+}
+
+@media (max-width: 992px){
+    .appHeader-navMenuDesktopTop, .appHeader-navMenuDesktopScrolled{
+        display: none;
+    }
+    .appHeader-navMenuMobile{
+        background-color: #fff;
+        position: fixed;
+        top: 0;
+        width: 100vw;
+        z-index: 3;
+        display: flex;
+        justify-content: space-between;
+        box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28)
+    }
+    .appHeader-hamburger{
+        background-image: url("../../assets/HamburgerMenu.svg");
+        width: 24px;
+        height: 24px;
+        margin: 12px;
+    }
+    .appHeader-authMenu{
+        margin-right: 10px;
+        li{
+            display: flex;
+            align-items: center;
+        }
+    }   
 }

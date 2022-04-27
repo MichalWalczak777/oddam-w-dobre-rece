@@ -7,6 +7,7 @@ import LoggedOut from './components/authentication/LoggedOut';
 import DonateStuff from './components/donateStuff/DonateStuff';
 import PrivateRoute from './components/authentication/PrivateRoute';
 import { AuthProvider } from './components/authentication/Auth';
+import { HeadData } from './components/HeadData';
 import {
   HashRouter,
   Route,
@@ -17,6 +18,7 @@ function App() {
   return (
     <AuthProvider>
       <HashRouter>
+        <HeadData/>
         <AppHeader/>
         <Switch>
             <Route exact path="/" component={Home}/>
