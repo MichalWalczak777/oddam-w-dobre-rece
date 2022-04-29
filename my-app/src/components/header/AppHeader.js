@@ -7,6 +7,7 @@ const AppHeader = () => {
 
     const {currentUser} = useContext(AuthContext);
     const [isOnTop, setIsOnTop] = useState(true);
+    const [isSideMenuVisible, setIsSideMenuVisible] = useState(false);
     
     const contentMenuList = [{path: "/#top", description: "Start"}, {path: "/#donate", description: "O co chodzi?"}, {path: "/#aboutUs", description: "O nas"}, {path: "/#organizations", description: "Fundacje i organizacje"}, {path: "/#contact", description: "Kontakt"}];
 
@@ -17,6 +18,10 @@ const AppHeader = () => {
           window.removeEventListener('scroll', () => handleScroll);
         };
     }, []);
+
+    const switchSideMenuVisibility = () => {
+        setIsSideMenuVisible(!isSideMenuVisible);
+    }
 
         const AuthMenu = ({user, isDesktop}) => {
 
@@ -41,7 +46,7 @@ const AppHeader = () => {
     const ContentMenu = () => {
         return (
             <ul className="appHeader-contentMenu">
-            {contentMenuList.map(menuElement => <li key={menuElement.description}>
+            {contentMenuList.map(menuElement => <li key={menuElement.description} onClick={switchSideMenuVisibility}>
                                                     <HashLink to={menuElement.path} scroll={(el) => el.scrollIntoView({ behavior: 'smooth'})}>{menuElement.description}</HashLink>
                                                 </li>
             )}
@@ -55,14 +60,20 @@ const AppHeader = () => {
 
     return (
         <>
-            <div className={`${isOnTop ? "container appHeader-navMenuDesktopTop" : " appHeader-navMenuDesktopScrolled"}`}>
+            <div className={isOnTop ? "container appHeader-navMenuDesktopTop" : " appHeader-navMenuDesktopScrolled"}>
                 <AuthMenu user={currentUser} isDesktop = {true}/>
                 <ContentMenu/>
             </div>
             <div className = "appHeader-navMenuMobile">
-                <div className = "appHeader-hamburger"/>
+                <div className = "appHeader-hamburger" onClick={switchSideMenuVisibility}/>
                 <AuthMenu user={currentUser} isDesktop = {false}/>
+                <div className={isSideMenuVisible ? "appHeader-sideMenu" : "appHeader-hiddenElement"}>
+                    <div className= "appHeader-closeSideMenuIcon" onClick={switchSideMenuVisibility}/>
+                    <ContentMenu/>
+                </div>
+                <div className={isSideMenuVisible ? "appHeader-backgroundFilter" : "appHeader-hiddenElement"}/>
             </div>
+
         </>
     );
 }
