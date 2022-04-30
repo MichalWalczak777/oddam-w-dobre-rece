@@ -16,19 +16,21 @@ import {
 
 function App() {
   return (
-    <AuthProvider>
-      <HashRouter>
-        <HeadData/>
-        <AppHeader/>
-        <Switch>
-            <Route exact path="/" component={Home}/>
-            <Route exact path="/login" component={Login}/>
-            <Route exact path="/register" component={Register}/>  
-            <Route exact path="/loggedOut" component={LoggedOut}/>   
-            <PrivateRoute exact path="/donateStuff" component={DonateStuff}/>                                                                                                                                                                                                               
-        </Switch>
-      </HashRouter>
-    </AuthProvider>
+    <>
+      <HeadData/>
+      <AuthProvider>
+        <HashRouter>
+          <AppHeader/>
+          <Switch>
+              <Route exact path="/" component={Home}/>
+              <Route exact path="/login" component={Login}/>
+              <Route exact path="/register" component={Register}/>  
+              <Route exact path="/loggedOut" component={LoggedOut}/>   
+              <PrivateRoute exact path="/donateStuff" component={DonateStuff}/>                                                                                                                                                                                                               
+          </Switch>
+        </HashRouter>
+      </AuthProvider>
+    </>
   );
 }
 
