@@ -45,35 +45,22 @@
     cursor: pointer;
 }
 
-.appHeader-sideMenu{
-    display: block;
-    position: absolute;
-    background-color: #fff;
-    opacity: 1;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 80vw;
-    z-index: 5;
-}
-
-.appHeader-backgroundFilter{
-    display: block;
-    position: absolute;
-    background-color: black;
-    opacity: 0.5;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    z-index: 4;
-}
-
 .appHeader-hiddenElement{
     display: none;
 }
 
+
 @media (max-width: 992px){
+
+    @keyframes expandSideMenu {
+        from {left: -80%;}
+        to {left: 0;}
+      }
+    @keyframes applyBackgroundFilter {
+        from {opacity: 0;}
+        to {opacity: 0.6;}
+    }
+
     .appHeader-navMenuDesktopTop, .appHeader-navMenuDesktopScrolled{
         display: none;
     }
@@ -86,6 +73,36 @@
         display: flex;
         justify-content: space-between;
         box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28)
+    }
+    .appHeader-sideMenu{
+        display: block;
+        position: absolute;
+        background-color: #fff;
+        opacity: 1;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 80vw;
+        z-index: 5;
+        animation-name: expandSideMenu;
+        animation-duration: 0.3s;
+        animation-timing-function: ease;
+        animation-fill-mode: forwards;
+    }
+    .appHeader-backgroundFilter{
+        display: block;
+        position: absolute;
+        background-color: black;
+        opacity: 0.5;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        z-index: 4;
+        animation-name: applyBackgroundFilter;
+        animation-duration: 0.3s;
+        animation-timing-function: ease;
+        animation-fill-mode: forwards;
     }
     .appHeader-hamburger{
         background-image: url("../../assets/HamburgerMenu.svg");

@@ -19,8 +19,12 @@ const AppHeader = () => {
         };
     }, []);
 
-    const switchSideMenuVisibility = () => {
-        setIsSideMenuVisible(!isSideMenuVisible);
+    const showSideMenu = () => {
+        setIsSideMenuVisible(true);
+    }
+
+    const hideSideMenu = () => {
+        setIsSideMenuVisible(false);
     }
 
         const AuthMenu = ({user, isDesktop}) => {
@@ -46,7 +50,7 @@ const AppHeader = () => {
     const ContentMenu = () => {
         return (
             <ul className="appHeader-contentMenu">
-            {contentMenuList.map(menuElement => <li key={menuElement.description} onClick={switchSideMenuVisibility}>
+            {contentMenuList.map(menuElement => <li key={menuElement.description} onClick={hideSideMenu}>
                                                     <HashLink to={menuElement.path} scroll={(el) => el.scrollIntoView({ behavior: 'smooth'})}>{menuElement.description}</HashLink>
                                                 </li>
             )}
@@ -65,10 +69,10 @@ const AppHeader = () => {
                 <ContentMenu/>
             </div>
             <div className = "appHeader-navMenuMobile">
-                <div className = "appHeader-hamburger" onClick={switchSideMenuVisibility}/>
+                <div className = "appHeader-hamburger" onClick={showSideMenu}/>
                 <AuthMenu user={currentUser} isDesktop = {false}/>
                 <div className={isSideMenuVisible ? "appHeader-sideMenu" : "appHeader-hiddenElement"}>
-                    <div className= "appHeader-closeSideMenuIcon" onClick={switchSideMenuVisibility}/>
+                    <div className= "appHeader-closeSideMenuIcon" onClick={hideSideMenu}/>
                     <ContentMenu/>
                 </div>
                 <div className={isSideMenuVisible ? "appHeader-backgroundFilter" : "appHeader-hiddenElement"}/>
