@@ -5,7 +5,7 @@
     background-position: -150% 0;
 }
 
-.homeMain-container{
+.homeMain-desktop{
     margin-top:50px;
     display:flex;
     justify-content: flex-end;
@@ -16,7 +16,7 @@
     height:400px;
 }
 
-.homeMain-text{
+.homeMain-content{
     margin-top:340px;
     margin-bottom:270px;
     display: flex;
@@ -26,6 +26,7 @@
 }
 
 .homeMain-decoration{
+    align-self: center;
     margin-top:25px;
     margin-bottom:65px;
 }
@@ -40,6 +41,63 @@
 .homeMain-button{
     margin: 0 15px;
 }
+.homeMain-mobile{
+    display: none;
+}
+
+@media (max-width:992px){
+    .homeMain{
+        padding-top: 120px;
+        padding-bottom: 60px;
+        background-color: #F0F1F1;
+    }
+    .homeMain-desktop{
+        display: none;
+    }
+    .homeMain-mobile{
+        margin: 0 20px 20px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .homeMain-buttonsBox{
+        margin: 10px 0 0 0;
+        flex-direction: column;
+        align-items: center;
+    }
+    .homeMain-button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        a{
+            display: block;
+            width: 60%;
+        }
+    }
+    .homeMain-lowerHeader, .homeMain-upperHeader{
+        font-size: 1.7rem;
+        line-height: normal;
+    }
+    .homeMain-lowerHeader{
+        margin-top: 30px;
+    }
+    .homeMain-decoration{
+        margin: 30px 0 50px 0;
+        align-self: center;
+        width: 14rem;
+    }
+    .homeMain-button{
+        margin: 10px 0 10px 0;
+        width: 100%;
+        a{
+            font-size: 1.125rem;
+            font-weight: 300;
+            width: 100%;
+        }
+    }
+
+}
+
 
 
 
