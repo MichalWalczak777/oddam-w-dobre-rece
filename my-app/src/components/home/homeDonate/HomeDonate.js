@@ -7,38 +7,26 @@ import bagIcon from "../../../assets/Icon-2.svg";
 import magnifierIcon from "../../../assets/Icon-3.svg";
 import recycleIcon from "../../../assets/Icon-4.svg";
 
+const donationInstructions = [{icon: shirtIcon, imgText: "koszula", header:"Wybierz rzeczy", description: "ubranie, zabawki, sprzęt i inne"}, {icon: bagIcon, imgText: "torba", header:"Spakuj je", description: "skorzystaj z worków na śmieci"}, {icon: magnifierIcon, imgText: "szkło powiększające", header:"Zdecyduj komu pomóc", description: "wybierz zaufane miejsce"}, {icon: recycleIcon, imgText: "transport", header:"Omów się z kurierem", description: "kurier przyjedzie w dogodnym terminie"}];
+
 const HomeDonate = () => {
     return (
         <div id="donate" className="homeDonate">
             <div className="container homeDonate-headerContainer">
-                <h2>Wystarczą 4 proste kroki</h2>
+                <h2 className="homeDonate-header">Wystarczą 4 proste kroki</h2>
                 <img className="homeDonate-decoration" alt="decoration" src={decoration}></img>
             </div>
             <div className="homeDonate-background">
-                <div className="homeDonate-instructionContainer container">
-                    <div className="homeDonate-instruction">
-                        <img alt="koszula" src={shirtIcon}></img>
-                        <h4>Wybierz rzeczy</h4>
-                        <p>ubranie, zabawki, <br/> sprzęt i inne</p>
-                    </div>
-                    <div className="homeDonate-instruction">
-                        <img alt="torba" src={bagIcon}></img>
-                        <h4>Spakuj je</h4>
-                        <p>skorzystaj z <br/> worków na śmieci</p>
-                    </div>
-                    <div className="homeDonate-instruction">
-                        <img alt="lupa" src={magnifierIcon}></img>
-                        <h4>Zdecyduj komu <br/> chcesz pomóc</h4>
-                        <p>wybierz zaufane <br/> miejsce</p>
-                    </div>
-                    <div className="homeDonate-instruction">
-                        <img alt="transport" src={recycleIcon}></img>
-                        <h4>Zamów kuriera</h4>
-                        <p> kurier przyjedzie <br/> w dogodnym terminie </p>
-                    </div>
+                <div className="homeDonate-instructions container">
+                    {donationInstructions?.map(instruction =>   <div className="homeDonate-instruction" key={instruction.description}>
+                                                                    <img alt={instruction.imgText} src={instruction.icon}></img>
+                                                                    <h4>{instruction.header}</h4>
+                                                                    <p>{instruction.description}</p>
+                                                                </div>)
+                    }
                 </div>
             </div>
-            <button className="general-button homeDonate-button"><Link to={"/login"}>Oddaj <br/> rzeczy</Link></button>
+            <button className="general-button homeDonate-button"><Link to={"/donateStuff"}>Oddaj rzeczy</Link></button>
         </div>
     );
 }
