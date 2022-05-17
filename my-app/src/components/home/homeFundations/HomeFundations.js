@@ -61,15 +61,15 @@ const HomeFundations = () => {
     let content = null;
 
     return (
-        <div id="organizations" className="container ">
-            <div className="homeFundations-header">
-                <h2> Komu pomagamy? </h2>
+        <div id="organizations" className="container homeFundations">
+            <div className="homeFundations-headerWrapper">
+                <h2 className="homeFundations-header"> Komu pomagamy? </h2>
                 <img className="homeFundations-decoration" alt="decoration" src={decoration}></img>
             </div>
                 <div className="homeFundations-navigation">
                     <button className="homeFundations-navButton" name="fundations" onClick={handleClick}>Fundacjom </button>
-                    <button className="homeFundations-navButton" name="organizations" onClick={handleClick}>Organizacjom <br/> pozarządowym</button>
-                    <button className="homeFundations-navButton" name="fundraisings" onClick={handleClick}>Lokalnym <br/> zbiórkom</button>
+                    <button className="homeFundations-navButton" name="organizations" onClick={handleClick}>Organizacjom pozarządowym</button>
+                    <button className="homeFundations-navButton" name="fundraisings" onClick={handleClick}>Lokalnym zbiórkom</button>
                 </div>
             {currentTab === "fundations" && <HomeFundationsDisplay data={fundationsList} header={fundationsHeader}></HomeFundationsDisplay>}
             {currentTab === "organizations" && <HomeFundationsDisplay data={organizationsList} header={organizationsHeader}></HomeFundationsDisplay>}
