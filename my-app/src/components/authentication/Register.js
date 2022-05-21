@@ -65,8 +65,8 @@ const Register = () => {
         ? <Redirect to={"/"} /> 
         : (
         <div className="login container">
-            <h2>Załóż konto</h2>
-            <img className="general-decoration" alt="dekoracja" src={decoration}></img>
+            <h2 className="login-header">Załóż konto</h2>
+            <img className="login-decoration" alt="dekoracja" src={decoration}></img>
             <form className="login-form" onSubmit={handleSubmit}>
                 <div className="login-inputBox">
                     <label htmlFor="email">Email</label>
@@ -85,8 +85,8 @@ const Register = () => {
                 </div>
             </form>
             <div className="login-buttons">
-                <button className="login-button login-button-active" type="submit" onClick={handleSubmit}>Załóż konto</button>
-                <button className="login-button"><Link to={"/login"}>Zaloguj się</Link></button>
+                <button className="login-button-active" type="submit" onClick={handleSubmit}>Załóż konto</button>
+                <button className="login-button-inactive"><Link to={"/login"}>Zaloguj się</Link></button>
             </div>
         </div>
         )

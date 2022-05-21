@@ -62,8 +62,8 @@ const Login = () => {
         ? <Redirect to={"/"} /> 
         : (
         <div className="login container">
-            <h2>Zaloguj się</h2>
-            <img className="general-decoration" alt="dekoracja" src={decoration}></img>
+            <h2 className="login-header">Zaloguj się</h2>
+            <img className="login-decoration" alt="dekoracja" src={decoration}></img>
             <form className="login-form" onSubmit={handleSubmit}>
                 <div className="login-inputBox">
                     <label htmlFor="email">Email</label>
@@ -77,8 +77,8 @@ const Login = () => {
                 </div>
             </form>
             <div className="login-buttons">
-                <button className="login-button"><Link to={"/register"}>Załóż konto</Link></button>
-                <button className="login-button login-button-active" type="submit" onClick={handleSubmit}>Zaloguj się</button>
+                <button className="login-button-inactive"><Link to={"/register"}>Załóż konto</Link></button>
+                <button className="login-button-active" type="submit" onClick={handleSubmit}>Zaloguj się</button>
             </div>
         </div>
         )
