@@ -43,7 +43,7 @@ const DonateStuff = () => {
 
 
     const beneficiariesList = ["dzieciom", "samotnym matkom", "niepełnosprawnym", "osobom starszym", "bezdomnym"];
-    const itemsList = ["ubrania, które nadają się do ponownego użycia", "ubrania, do wyrzucenia", "zabawki", "książki", "inne"];
+    const itemsList = ["ubrania, w dobrym stanie", "ubrania, do wyrzucenia", "zabawki", "książki", "inne"];
     const adressData = [{label: "Ulica", name: "street"}, {label: "Miasto", name: "city"}, {label:"Kod pocztowy", name: "postalCode"}, {label:"Numer telefonu", name: "phoneNumber"}];
     const timeData = [{label: "Data", name: "date"}, {label:"Godzina", name: "hour"}];
 
@@ -164,7 +164,7 @@ const DonateStuff = () => {
                     <div className="donateStuff-container">
                         <form className="donateStuff-formBody" onSubmit={e => e.preventDefault()}>
                             <p className="donateStuff-stepNumber">Krok 1/4</p>
-                            <h2>Zaznacz co chcesz oddać:</h2>
+                            <h2 className="donateStuff-formHeader">Zaznacz co chcesz oddać:</h2>
                             {itemsList?.map((itemName, i) => (
                                                     <div className="donateStuff-step1CheckboxWrapper" key={itemName}>
                                                         <input type="checkbox" id={`items-${i}`} name="itemsToDonate" value={itemName} 
@@ -173,6 +173,7 @@ const DonateStuff = () => {
                                                     </div>
                             ))}
                             <div className="donateStuff-buttonWrapper">
+                                <div></div>
                                 <button className="donateStuff-button" onClick={nextStep}> Dalej </button>                   
                             </div>
                         </form>
@@ -192,7 +193,7 @@ const DonateStuff = () => {
                     <div className="donateStuff-container">
                         <form className="donateStuff-formBody" onSubmit={e => e.preventDefault()}>
                             <p className="donateStuff-stepNumber">Krok 2/4</p>
-                            <h2>Podaj liczbę 60l worków, w które spakowałaś/eś rzeczy:</h2>
+                            <h2 className="donateStuff-formHeader">Podaj liczbę 60l worków, w które spakowałaś/eś rzeczy:</h2>
                             <div className="donateStuff-selectWrapper">
                                 <label htmlFor="bags">Liczba 60l worków:</label>
                                 <select name="numberOfBags" id="bags" value={fields.numberOfBags} onChange={handleChange}>
@@ -225,7 +226,7 @@ const DonateStuff = () => {
                     <div className="donateStuff-container">
                         <form className="donateStuff-formBody" onSubmit={e => e.preventDefault()}>
                             <p className="donateStuff-stepNumber">Krok 3/4</p>
-                            <h2>Lokalizacja:</h2>
+                            <h5>Lokalizacja:</h5>
                             <div className="donateStuff-selectWrapper">
                                 <select name="location" id="location" value={fields.location} onChange={handleChange}>
                                     <option value="" hidden>---Wybierz---</option>
@@ -249,7 +250,7 @@ const DonateStuff = () => {
                             ))}
                             </div>
                             <h5>Wpisz nazwę konkretnej organizacji (opcjonalnie)</h5>
-                            <input type="text" name="organization" id="organization" value={fields.organization} onChange={handleChange}/>
+                            <textarea type="text" name="organization" id="organization" value={fields.organization} onChange={handleChange}/>
                             <div className="donateStuff-buttonWrapper">
                                 <button className="donateStuff-button" onClick={previousStep}> Wstecz </button>
                                 <button className="donateStuff-button" onClick={nextStep}> Dalej </button>
@@ -271,7 +272,7 @@ const DonateStuff = () => {
                     <div className="donateStuff-container">
                         <form className="donateStuff-formBody" onSubmit={e => e.preventDefault()}>
                             <p className="donateStuff-stepNumber">Krok 4/4</p>
-                            <h2>Podaj adres oraz termin odbioru rzeczy przez kuriera</h2>
+                            <h2 className="donateStuff-formHeader">Podaj adres oraz termin odbioru rzeczy przez kuriera</h2>
                             <div className="donateStuff-formColumns">
                                 <div className="donateStuff-formColumn">
                                     <h5>Adres odbioru:</h5>
@@ -319,14 +320,14 @@ const DonateStuff = () => {
             <div className="donateStuff-formBackground">
                 <div className="donateStuff-container">
                     <form className="donateStuff-formBody" onSubmit={e => e.preventDefault()}>
-                        <h2>Podsumowanie Twojej darowizny</h2>
+                        <h2 className="donateStuff-formHeader">Podsumowanie:</h2>
                         <h5>Oddajesz: </h5>
-                        <p className="donateStuff-summaryIconParagraph">
-                            <img src={shirtIcon} alt="koszulka"/>{fields.numberOfBags + " (" + fields.itemsToDonate + ") " + fields.beneficiaries}
-                        </p>
-                        <p className="donateStuff-summaryIconParagraph">
-                            <img src={recycleIcon} alt="symbol recyclingu"/>dla lokalizacji: {fields.location}
-                        </p>
+                            <p className="donateStuff-summaryIconParagraph">
+                                <img src={shirtIcon} alt="koszulka"/><span>{fields.numberOfBags + " (" + fields.itemsToDonate.map((item, i) => i > 0 ? " " + item : item) + ") " + fields.beneficiaries.map((beneficiary, i) => i > 0 ? " " + beneficiary : beneficiary)}</span>
+                            </p>
+                            <p className="donateStuff-summaryIconParagraph">
+                                <img src={recycleIcon} alt="symbol recyclingu"/><span>dla lokalizacji: {fields.location}</span>
+                            </p>
                         <div className="donateStuff-formColumns donateStuff-summaryColumns">
                             <div className="donateStuff-formColumn">
                                 <h5>Adres odbioru:</h5>
@@ -365,7 +366,7 @@ const DonateStuff = () => {
                         </div>
                         <div className="donateStuff-buttonWrapper">
                             <button className="donateStuff-button" onClick={previousStep}> Wstecz </button>
-                            <button className="donateStuff-button" onClick={handleSubmit}> Potwierdzam </button>
+                            <button className="donateStuff-button" onClick={handleSubmit}> Zatwierdź </button>
                         </div>
                     </form>
                 </div>
@@ -375,7 +376,7 @@ const DonateStuff = () => {
             <div className="donateStuff-formBackground">
                 <div className="donateStuff-goodbyeFlexBox">
                     <div className="donateStuff-goodbyeWrapper">
-                        <h2 className="donateStuff-goodbye"> Dziękujemy za przesłanie formularza Na maila prześlemy wszelkie informacje o odbiorze.</h2>
+                        <h2 className="donateStuff-goodbye"> Dziękujemy za przesłanie formularza. Na maila prześlemy wszelkie informacje o odbiorze.</h2>
                         <img className="general-decoration donateStuff-decoration" src={decoration}/>
                     </div>
                 </div>
