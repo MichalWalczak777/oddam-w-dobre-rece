@@ -1,77 +1,77 @@
-.homeAboutUs{
-    margin-top: 80px;
-    background-color: #F0F1F1;
-    width:100%;
-    display: flex;
+.homeAboutUs {
+  margin-top: 80px;
+  background-color: #f0f1f1;
+  width: 100%;
+  display: flex;
 }
 
-.homeAboutUs-text{
-    width:50%;
-    align-self: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    p{
-        width:75%;
-        margin: 30px 60px;
-        font-size: 1.5rem;
-        line-height: 3rem;
-        text-align: justify;
-        text-align-last: center;
-    }
-}
-
-.homeAboutUs-header{
-    width:75%;
-    margin-bottom: 10px;
-}
-
-.homeAboutUs-signatureBox{
+.homeAboutUs-text {
+  width: 50%;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  p {
     width: 75%;
-    display:flex;
-    justify-content: flex-end;
-    img{
-        margin: 10px 60px;
-    }
+    margin: 30px 60px;
+    font-size: 1.5rem;
+    line-height: 3rem;
+    text-align: justify;
+    text-align-last: center;
+  }
 }
 
-.homeAboutUs-imagePeople{
-    width:50%;
+.homeAboutUs-header {
+  width: 75%;
+  margin-bottom: 10px;
 }
 
-@media (max-width: 992px){
-    .homeAboutUs{
-        margin: 0;
-        padding-top: 60px;
-        padding-bottom: 60px;
+.homeAboutUs-signatureBox {
+  width: 75%;
+  display: flex;
+  justify-content: flex-end;
+  img {
+    margin: 10px 60px;
+  }
+}
+
+.homeAboutUs-imagePeople {
+  width: 50%;
+}
+
+@media (max-width: 992px) {
+  .homeAboutUs {
+    margin: 0;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .homeAboutUs-text {
+    width: 100%;
+    p {
+      font-size: 1.2rem;
+      line-height: 2rem;
+      margin: 0 20px 40px 20px;
     }
-    .homeAboutUs-text{
-        width: 100%;
-        p{
-            font-size: 1.2rem;
-            line-height: 2rem;
-            margin: 0 20px 40px 20px;
-        }
+  }
+  .homeAboutUs-imagePeople {
+    display: none;
+  }
+  .homeAboutUs-header {
+    width: auto;
+    margin-bottom: 0;
+    font-size: 1.7rem;
+    line-height: normal;
+  }
+  .homeAboutUs-decoration {
+    margin: 30px 0 50px 0;
+    align-self: center;
+    width: 14rem;
+  }
+  .homeAboutUs-signatureBox {
+    margin-left: 40px;
+    img {
+      width: 11rem;
+      margin-right: 20px;
     }
-    .homeAboutUs-imagePeople{
-        display: none;
-    }
-    .homeAboutUs-header{
-        width: auto;
-        margin-bottom: 0;
-        font-size: 1.7rem;
-        line-height: normal;
-    }
-    .homeAboutUs-decoration{
-        margin: 30px 0 50px 0;
-        align-self: center;
-        width: 14rem;
-    }
-    .homeAboutUs-signatureBox{
-        margin-left: 40px;
-        img{
-            width: 11rem;
-            margin-right: 20px;
-        }
-    }
+  }
 }

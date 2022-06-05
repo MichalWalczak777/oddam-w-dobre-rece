@@ -1,68 +1,67 @@
-.homeContact{
-    margin-top: 80px;
-    position: relative;
-    overflow: hidden;
-        &::before {
-            content: ' ';
-            display: block;
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            opacity: 0.25;
-            background-image: url("../../../assets/Background-Contact-Form.jpg");
-            background-repeat: no-repeat;
-            background-position: 50% 0;
-            background-size: cover;
-        }
+.homeContact {
+  margin-top: 80px;
+  position: relative;
+  overflow: hidden;
+  &::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.25;
+    background-image: url("../../../assets/Background-Contact-Form.jpg");
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-size: cover;
+  }
 }
 
-.homeContact-container{
-    display: flex;
-    flex-direction: column;
+.homeContact-container {
+  display: flex;
+  flex-direction: column;
 }
 
-.homeContact-text{
-    margin-top: 200px;
-    margin-bottom: 270px;
-    position: relative;
-    align-self: flex-end;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
+.homeContact-text {
+  margin-top: 200px;
+  margin-bottom: 270px;
+  position: relative;
+  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
 }
 
-.homeContact-decoration{
-    margin-top: 20px;
-    margin-bottom: 70px;
+.homeContact-decoration {
+  margin-top: 20px;
+  margin-bottom: 70px;
 }
 
-.homeContact-mobile{
+.homeContact-mobile {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .homeContact {
     display: none;
-}
-
-@media (max-width: 992px){
-
-    .homeContact{
-        display: none;
-    }
-    .homeContact-mobile{
-        background-color: #F0F1F1;
-        display: flex;
-        flex-direction: column;
-        padding: 60px 25px 75px 25px;
-    }
-    .homeContact-headerMobile{
-        align-self: center;
-        font-size: 1.7rem;
-    }
-    .homeContact-decoration{
-        margin: 30px 0 50px 0;
-        align-self: center;
-        width: 14rem;
-    }
+  }
+  .homeContact-mobile {
+    background-color: #f0f1f1;
+    display: flex;
+    flex-direction: column;
+    padding: 60px 25px 75px 25px;
+  }
+  .homeContact-headerMobile {
+    align-self: center;
+    font-size: 1.7rem;
+  }
+  .homeContact-decoration {
+    margin: 30px 0 50px 0;
+    align-self: center;
+    width: 14rem;
+  }
 }

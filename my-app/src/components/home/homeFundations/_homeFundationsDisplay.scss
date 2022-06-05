@@ -1,68 +1,67 @@
-.homeFundationsDisplay{
+.homeFundationsDisplay {
+  display: flex;
+  flex-direction: column;
+}
+
+.homeFundationsDisplay-header {
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.75rem;
+  font-size: 1.375rem;
+  text-align: justify;
+  text-align-last: center;
+  margin-bottom: 60px;
+}
+
+.homeFundationsDisplay-list {
+  li {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    border-bottom: 1px solid #3c3c3c;
+    padding: 20px;
+  }
+  li:last-child {
+    border-bottom: none;
+  }
 }
 
-.homeFundationsDisplay-header{
-    max-width: 680px;
-    margin: 0 auto;
-    line-height: 1.75rem;;
-    font-size: 1.375rem;
-    text-align: justify;
-    text-align-last: center;
-    margin-bottom: 60px;
+.homeFundationsDisplay-fundationName {
+  font-size: 1.625rem;
+  margin-bottom: 5px;
+  font-weight: 300;
+  font-family: $font-alt;
+  color: #3c3c3c;
 }
 
-.homeFundationsDisplay-list{
-    li{
-        display: flex;
-        justify-content: space-between;
-        border-bottom: 1px solid #3C3C3C ;
-        padding: 20px;
-    }
-    li:last-child{
-        border-bottom: none;
-    }
+.homeFundationsDisplay-fundationDescription,
+.homeFundationsDisplay-fundationNeeds {
+  font-size: 1.125rem;
+  font-weight: 300;
+  font-family: $font-alt;
+  color: #3c3c3c;
 }
 
-.homeFundationsDisplay-fundationName{
-    font-size: 1.625rem;
-    margin-bottom: 5px;
-    font-weight: 300;
-    font-family: $font-alt;
-    color: #3C3C3C;
+.homeFundationsDisplay-fundationNeeds {
+  align-self: center;
 }
 
-.homeFundationsDisplay-fundationDescription, .homeFundationsDisplay-fundationNeeds{
-    font-size: 1.125rem;
-    font-weight: 300;
-    font-family: $font-alt;
-    color: #3C3C3C;
+@media (max-width: 992px) {
+  .homeFundationsDisplay-header {
+    display: none;
+  }
+  .homeFundationsDisplay-fundationName {
+    font-size: 1.25rem;
+    padding: 10px 0;
+  }
+
+  .homeFundationsDisplay-fundationDescription,
+  .homeFundationsDisplay-fundationNeeds {
+    font-size: 1rem;
+  }
+  .homeFundationsDisplay-fundationNeeds {
+    margin-left: 30px;
+  }
+  .pagination-container {
+    padding-top: 20px;
+  }
 }
-
-.homeFundationsDisplay-fundationNeeds{
-    align-self: center;
-}
-
-@media(max-width: 992px){
-    .homeFundationsDisplay-header{
-        display: none;
-    }
-    .homeFundationsDisplay-fundationName{
-        font-size: 1.25rem;
-        padding: 10px 0;
-    }
-    
-    .homeFundationsDisplay-fundationDescription, .homeFundationsDisplay-fundationNeeds{
-        font-size: 1rem;
-    }
-    .homeFundationsDisplay-fundationNeeds{
-        margin-left: 30px;
-    }
-    .pagination-container{
-        padding-top: 20px;
-    }
-}
-
-
-

@@ -1,43 +1,41 @@
-body{
-    font-family: $font-base;
+body {
+  font-family: $font-base;
 }
 
-.container{
-    max-width: 1320px;
-    margin: 0 auto;
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
 }
 
-h2{
-    text-align:center;
-    line-height: 3rem;
-    font-size:2.25rem;
+h2 {
+  text-align: center;
+  line-height: 3rem;
+  font-size: 2.25rem;
 }
 
-h4{
-    font-size: 1.125rem;
+h4 {
+  font-size: 1.125rem;
 }
 
-.general-button{
-    width: 310px;
-    padding: 15px 0;
-    background-color: #fff;
-    border: 0.75px solid #3C3C3C;
-    a{
-        color:#3C3C3C;
-        font-size: 1.75rem;
-        font-weight: 300;
-        text-transform: uppercase;
-    }
+.general-button {
+  width: 310px;
+  padding: 15px 0;
+  background-color: #fff;
+  border: 0.75px solid #3c3c3c;
+  a {
+    color: #3c3c3c;
+    font-size: 1.75rem;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
 }
 
-.general-decoration{
-    margin-top: 20px;
-    margin-bottom: 70px;
+.general-decoration {
+  margin-top: 20px;
+  margin-bottom: 70px;
 }
 
-.general-errorMessage{
-    color: red;
-    margin-bottom: 10px;
+.general-errorMessage {
+  color: red;
+  margin-bottom: 10px;
 }
-
-
